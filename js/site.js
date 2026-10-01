@@ -58,7 +58,7 @@
   /* ---- Carousel ---- */
   var track = document.querySelector('[data-car-track]');
   if (track) {
-    var anim = null, paused = false;
+    var anim = null, paused = false, visible = true;
     var step = function (dir) {
       var card = track.querySelector('a');
       var w = card ? card.getBoundingClientRect().width + 18 : 300;
@@ -84,6 +84,9 @@
     var prev = document.querySelector('[data-car-prev]'), next = document.querySelector('[data-car-next]');
     if (prev) prev.addEventListener('click', function () { step(-1); });
     if (next) next.addEventListener('click', function () { step(1); });
-    if (!reduce) setInterval(function () { if (!paused && !document.hidden) step(1); }, 3500);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (e) { visible = e[0].isIntersecting; }).observe(track);
+    }
+    if (!reduce) setInterval(function () { if (!paused && visible && !document.hidden) step(1); }, 3500);
   }
 })();

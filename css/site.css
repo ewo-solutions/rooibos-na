@@ -23,6 +23,22 @@ html { scroll-padding-top:100px; }
   .js .curtain { display:none; }
   .js [data-reveal] { opacity:1; transform:none; transition:none; }
 }
+
+/* ---- Button hover ---- */
+main a[style*="padding:14px 20px"], .car-btn, main button {
+  transition: background-color .25s ease, color .25s ease, border-color .25s ease, transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s ease;
+}
+main a[style*="padding:14px 20px"]:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(50,30,20,.16); }
+main a[style*="padding:14px 20px"]:active { transform:translateY(0); box-shadow:none; }
+main a[style*="background:#b32025"][style*="padding:14px 20px"]:hover { background:#8c161a !important; color:#fff; }
+main a[style*="background:#fff"][style*="padding:14px 20px"]:hover { border-color:#b32025 !important; color:#b32025 !important; }
+main button:hover { transform:translateY(-2px); }
+main a[style*="padding:14px 20px"]:focus-visible, main button:focus-visible { outline:2px solid #b32025; outline-offset:3px; }
+@media (prefers-reduced-motion: reduce) {
+  main a[style*="padding:14px 20px"], main button { transition:none; }
+  main a[style*="padding:14px 20px"]:hover, main button:hover { transform:none; box-shadow:none; }
+}
+
 /* hover:start (generated) */
 .h1:hover{border-color:#b32025 !important}
 .h2:hover{border-color:#b32025 !important;color:#b32025 !important}

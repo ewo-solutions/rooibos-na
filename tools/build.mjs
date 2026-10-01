@@ -87,8 +87,8 @@ function fixLinks(html) {
 
 // Carousel buttons need identifiers
 function carButtons(html) {
-  html = html.replace(/(<button type="button")( aria-label="Previous products")/, '$1 data-car-prev$2');
-  html = html.replace(/(<button type="button")( aria-label="Next products")/, '$1 data-car-next$2');
+  html = html.replace(/<button type="button" onClick="\{\{ carPrev \}\}"/, '<button type="button" data-car-prev');
+  html = html.replace(/<button type="button" onClick="\{\{ carNext \}\}"/, '<button type="button" data-car-next');
   html = html.replace('data-car-track="1"', 'data-car-track');
   return html;
 }
@@ -118,7 +118,8 @@ function buildFooter() {
 function lazyImages(body) {
   const cut = body.indexOf('</section>');
   const rest = body.slice(cut).replace(/<img (?![^>]*loading=)/g, '<img loading="lazy" decoding="async" ');
-  return body.slice(0, cut) + rest;
+  const first = body.slice(0, cut).replace(/<img /, '<img fetchpriority="high" ');
+  return first + rest;
 }
 
 const head = (key) => `<!DOCTYPE html>
