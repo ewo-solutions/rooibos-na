@@ -1,0 +1,30 @@
+body { margin:0; background:#fff; color:#242424; font-family:Arial,Helvetica,sans-serif; line-height:1.5; -webkit-font-smoothing:antialiased; }
+* { box-sizing:border-box; }
+a { color:#b32025; }
+a:hover { color:#8c161a; }
+img { max-width:100%; }
+html { scroll-padding-top:100px; }
+
+/* ---- Curtain load ---- */
+.curtain { display:none; }
+.js .curtain { display:block; position:fixed; inset:0; z-index:100; pointer-events:none; }
+.curtain span { position:absolute; top:0; bottom:0; width:50.5%; background:#5d1720; transition:transform .9s cubic-bezier(.77,0,.18,1); }
+.curtain span:first-child { left:0; }
+.curtain span:last-child { right:0; }
+.curtain.open span:first-child { transform:translateX(-101%); }
+.curtain.open span:last-child { transform:translateX(101%); }
+.curtain.done { display:none; }
+
+/* ---- Scroll reveals ---- */
+.js [data-reveal] { opacity:0; transform:translateY(22px); transition:opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); transition-delay:var(--d,0ms); }
+.js [data-reveal].in { opacity:1; transform:none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .js .curtain { display:none; }
+  .js [data-reveal] { opacity:1; transform:none; transition:none; }
+}
+/* hover:start (generated) */
+.h1:hover{border-color:#b32025 !important}
+.h2:hover{border-color:#b32025 !important;color:#b32025 !important}
+.h3:hover{color:#fff !important}
+/* hover:end */

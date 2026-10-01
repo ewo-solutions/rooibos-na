@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Rooibos North America | Bulk Rooibos, Botanicals, Extracts &amp; Powders</title>
+<meta name="description" content="Bulk Rooibos, Hibiscus, Chamomile, Botanicals, Extracts and Powders supplied direct from origin to North American manufacturers and wholesalers.">
+<style>
+  body { margin:0; background:#fff; color:#242424; font-family:Arial,Helvetica,sans-serif; line-height:1.5; -webkit-font-smoothing:antialiased; }
+  * { box-sizing:border-box; }
+  a { color:#b32025; }
+  a:hover { color:#8c161a; }
+  img { max-width:100%; }
+</style>
+</helmet>
+
+<div style="background:#fff">
+
+  <header style="position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);border-bottom:1px solid #eee;backdrop-filter:saturate(1.2) blur(4px)">
+    <div style="width:min(1180px,calc(100% - 40px));margin:auto;min-height:92px;display:flex;flex-wrap:wrap;align-items:center;gap:18px 28px;padding:14px 0">
+      <a href="#home" onClick="{{ goHome }}" style="display:block;flex:0 0 auto" aria-label="Rooibos North America home">
+        <img src="assets/logo-rooibos-na.png" alt="Rooibos Limited North America" style="display:block;max-width:215px;max-height:90px;object-fit:contain">
+      </a>
+      <nav aria-label="Primary navigation" style="display:flex;flex-wrap:wrap;gap:10px 26px;flex:1 1 320px;justify-content:center">
+        <a href="#home" onClick="{{ goHome }}" style="color:{{ cHome }};text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 0;border-bottom:2px solid {{ uHome }}">Home</a>
+        <a href="#products" onClick="{{ goProducts }}" style="color:{{ cProducts }};text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 0;border-bottom:2px solid {{ uProducts }}">Products</a>
+        <a href="#about" onClick="{{ goAbout }}" style="color:{{ cAbout }};text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 0;border-bottom:2px solid {{ uAbout }}">About</a>
+        <a href="#certifications" onClick="{{ goCerts }}" style="color:{{ cCerts }};text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 0;border-bottom:2px solid {{ uCerts }}">Certifications</a>
+        <sc-if value="{{ newsTab }}" hint-placeholder-val="{{ true }}">
+          <a href="#news" onClick="{{ goNews }}" style="color:{{ cNews }};text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 0;border-bottom:2px solid {{ uNews }}">Rooibos News</a>
+        </sc-if>
+        <a href="#contact" onClick="{{ goContact }}" style="color:{{ cContact }};text-decoration:none;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 0;border-bottom:2px solid {{ uContact }}">Contact</a>
+      </nav>
+      <sc-if value="{{ partnerMark }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;align-items:center;justify-content:flex-end;gap:14px;flex:0 0 auto">
+          <span style="font-size:11px;color:#8a8a8a;max-width:74px;line-height:1.3">In partnership with</span>
+          <img src="assets/logo-serendib.jpg" alt="Serendib Ingredients" style="max-width:112px;max-height:44px;object-fit:contain">
+        </div>
+      </sc-if>
+    </div>
+  </header>
+
+  <main>
+
+  <!-- ============================ HOME ============================ -->
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+  <div data-screen-label="Home">
+
+    <section style="background:linear-gradient(120deg,#f7f3ec,#fff 65%);padding:78px 0 72px;overflow:hidden">
+      <div style="width:min(1180px,calc(100% - 40px));margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:58px;align-items:center">
+        <div>
+          <div style="font-size:12px;font-weight:800;letter-spacing:.16em;color:#b32025;text-transform:uppercase;margin-bottom:18px">Direct from source · Warehouses in Virginia and Los Angeles</div>
+          <h1 style="font-family:Georgia,'Times New Roman',serif;font-weight:500;line-height:1.06;margin:0;font-size:clamp(34px,4.2vw,56px);text-wrap:pretty">Rooibos, Hibiscus, Chamomile, Botanicals, Extracts &amp; Powders. Supported by two global leaders.</h1>
+          <p style="font-size:20px;max-width:620px;color:#555;margin:22px 0 30px;text-wrap:pretty">Traceability and responsive people who know your business.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px">
+            <a href="#products" onClick="{{ goProducts }}" style="display:inline-block;background:#b32025;color:#fff;text-decoration:none;font-weight:700;padding:14px 20px;border-radius:3px">Explore our products</a>
+            <a href="#products" onClick="{{ goBotanicals }}" style="display:inline-block;background:#fff;color:#242424;border:1px solid #dfd8ce;text-decoration:none;font-weight:700;padding:14px 20px;border-radius:3px">Powders, Extracts &amp; Oil</a>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:14px">
+          <img src="assets/rooibos-field.jpg" alt="Rooibos plantation in the Cederberg at sunset" style="grid-column:1 / -1;width:100%;height:280px;object-fit:cover;border-radius:4px;box-shadow:0 18px 50px rgba(50,30,20,.16)">
+          <img src="assets/hibiscus-bud.jpg" alt="Roselle hibiscus calyces on the plant" style="width:100%;height:190px;object-fit:cover;border-radius:4px;box-shadow:0 18px 50px rgba(50,30,20,.16)">
+          <img src="assets/moringa.jpg" alt="Moringa leaf and moringa powder" style="width:100%;height:190px;object-fit:cover;border-radius:4px;box-shadow:0 18px 50px rgba(50,30,20,.16)">
+        </div>
+      </div>
+    </section>
+
+    <section style="background:#5d1720;color:#fff" aria-label="Rooibos North America supply strengths">
+      <div style="width:min(1180px,calc(100% - 40px));margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+        <div style="padding:22px 28px;border-right:1px solid rgba(255,255,255,.18)"><strong style="display:block;font-size:15px">International network</strong><span style="display:block;font-size:12px;opacity:.8;margin-top:4px">Direct source relationships</span></div>
+        <div style="padding:22px 28px;border-right:1px solid rgba(255,255,255,.18)"><strong style="display:block;font-size:15px">Trusted sourcing</strong><span style="display:block;font-size:12px;opacity:.8;margin-top:4px">Direct relationships with growers and processors</span></div>
+        <div style="padding:22px 28px"><strong style="display:block;font-size:15px">Reliable supply chain</strong><span style="display:block;font-size:12px;opacity:.8;margin-top:4px">Strategic inventory and dependable logistics</span></div>
+      </div>
+    </section>
+
+    <!-- What we supply -->
+    <section style="padding:90px 0">
+      <div style="width:min(1180px,calc(100% - 40px));margin:auto">
+        <div style="max-width:760px;margin-bottom:46px">
+          <div style="font-size:12px;font-weight:800;letter-spacing:.16em;color:#b32025;text-transform:uppercase;margin-bottom:18px">Ingredient portfolio</div>
+          <h2 style="font-family:Georgia,'Times New Roman',serif;font-weight:500;line-height:1.05;margin:0;font-size:clamp(36px,4.6vw,54px);text-wrap:pretty">What we supply</h2>
+          <p style="font-size:18px;color:#626262;margin:20px 0 0;text-wrap:pretty">Bulk ingredients for manufacturers and wholesalers. Availability and certification details are confirmed by product and batch number.</p>
+          <p style="font-size:17px;color:#242424;margin:18px 0 0;padding:14px 18px;background:#f7f3ec;border-left:3px solid #b32025;text-wrap:pretty"><strong>All products are available certified organic, with conventional options available for select ingredients.</strong></p>
+        </div>
+        <div style="position:relative" onMouseEnter="{{ pauseCar }}" onMouseLeave="{{ resumeCar }}">
+          <div data-car-track="1" style="display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x proximity;padding-bottom:10px;scrollbar-width:thin">
+            <sc-for list="{{ carItems }}" as="p" hint-placeholder-count="4">
+              <a href="#products" onClick="{{ goProducts }}" style="flex:0 0 min(280px,78vw);scroll-snap-align:start;border:1px solid #dfd8ce;background:#fff;overflow:hidden;border-radius:4px;text-decoration:none;color:inherit;display:flex;flex-direction:column" style-hover="border-color:#b32025">
+                <img src="{{ p.img }}" alt="{{ p.name }}" style="width:100%;height:200px;object-fit:cover;display:block;background:#f3f0eb">
+                <div style="padding:18px;flex:1"><span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#b32025;font-weight:800">{{ p.origin }}</span><h4 style="font:500 24px/1.1 Georgia,'Times New Roman',serif;margin:7px 0 0">{{ p.name }}</h4></div>
+              </a>
+            </sc-for>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:18px">
+            <button type="button" onClick="{{ carPrev }}" aria-label="Previous products" style="width:46px;height:46px;border:1px solid #dfd8ce;background:#fff;color:#242424;font-size:20px;cursor:pointer;border-radius:3px" style-hover="border-color:#b32025;color:#b32025">&#8592;</button>
+            <button type="button" onClick="{{ carNext }}" aria-label="Next products" style="width:46px;height:46px;border:1px solid #dfd8ce;background:#fff;color:#242424;font-size:20px;cursor:pointer;border-radius:3px" style-hover="border-color:#b32025;color:#b32025">&#8594;</button>
+          </div>
+        </div>
+        <a href="#products" onClick="{{ goProducts }}" style="display:inline-block;background:#b32025;color:#fff;text-decoration:none;font-weight:700;padding:14px 20px;border-radius:3px;margin-top:34px">See all products</a>
+      </div>
+    </section>
+
+    <!-- Fastest-growing range -->
+    <section style="padding:90px 0;background:#f3eee6">
+      <div style="width:min(1180px,calc(100% - 40px));margin:auto">
+        <div style="max-width:820px;margin-bottom:46px">
+          <div style="font-size:12px;font-weight:800;letter-spacing:.16em;color:#b32025;text-transform:uppercase;margin-bottom:18px">Our fastest-growing range</div>
+          <h2 style="font-family:Georgia,'Times New Roman',serif;font-weight:500;line-height:1.05;margin:0;font-size:clamp(36px,4.6vw,54px);text-wrap:pretty">Extracts, Botanical Powders and Rosehip Seed Oil.</h2>
+          <p style="font-size:18px;color:#5c5c5c;margin:20px 0 0;text-wrap:pretty">Concentrated, easy-to-use formats for the food, beverage, supplement, nutraceutical, cosmetic and personal care industries.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px">
+          <article style="background:#fff;border:1px solid #dfd8ce;border-radius:4px;overflow:hidden">
+            <img src="assets/rooibos-extract.png" alt="Rooibos extract powder on a wooden spoon" style="width:100%;height:250px;object-fit:cover;display:block;background:#f3f0eb">
+            <div style="padding:22px">
+              <span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#b32025;font-weight:800">Extracts &amp; powders</span>
+              <h3 style="font:500 27px/1.1 Georgia,'Times New Roman',serif;margin:8px 0 10px">Botanical Extracts and Powders</h3>
+              <p style="font-size:15px;color:#666;margin:0">Rooibos, Moringa, Hibiscus, Chamomile and other Botanicals in water-soluble Extract and Powder form.</p>
+            </div>
+          </article>
+          <article style="background:#fff;border:1px solid #dfd8ce;border-radius:4px;overflow:hidden">
+            <img src="assets/rosehip-oil.jpg" alt="Rosehip oil and rosehips" style="width:100%;height:250px;object-fit:cover;display:block;background:#f3f0eb">
+            <div style="padding:22px">
+              <span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#b32025;font-weight:800">Oil</span>
+              <h3 style="font:500 27px/1.1 Georgia,'Times New Roman',serif;margin:8px 0 10px">Organic Rosehip Seed Oil</h3>
+              <p style="font-size:15px;color:#666;margin:0">Rosa Canina Seed Oil for cosmetic and personal care manufacturing, in bulk 191 kg drums.</p>
+            </div>
+          </article>
+        </div>
+        <a href="#products" onClick="{{ goBotanicals }}" style="display:inline-block;background:#b32025;color:#fff;text-decoration:none;font-weight:700;padding:14px 20px;border-radius:3px;margin-top:34px">Extracts &amp; powders</a>
+      </div>
+    </section>
+
+    <section style="padding:90px 0">
+      <div style="width:min(1180px,calc(100% - 40px));margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:70px;align-items:start">
+        <div>
+          <h2 style="font-family:Georgia,'Times New Roman',serif;font-weight:500;line-height:1.05;margin:0 0 30px;font-size:clamp(34px,4.4vw,52px);text-wrap:pretty">Ready for your scale.</h2>
+          <div style="display:flex;flex-wrap:wrap;align-items:center;gap:28px">
+            <img src="assets/logo-rooibos-na.png" alt="Rooibos Limited North America" style="max-width:200px;max-height:84px;object-fit:contain;display:block">
+            <img src="assets/logo-serendib.jpg" alt="Serendib Ingredients" style="max-width:150px;max-height:62px;object-fit:contain;display:block">
+          </div>
+        </div>
+        <div>
+          <p style="font-size:18px;color:#555;margin:0 0 18px;text-wrap:pretty">Rooibos North America is a wholly-owned subsidiary of Rooibos Ltd in South Africa and works in partnership with Serendib Ingredients, bringing established tea and botanical supply capability to North American manufacturers and wholesalers.</p>
+          <p style="font-size:18px;color:#555;margin:0 0 24px;text-wrap:pretty">Our model combines direct origin relationships, traceability, quality documentation and dependable U.S. inventory on both coasts.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:12px">
+            <a href="assets/certs/rooibos-north-america-trifold-brochure.pdf" target="_blank" rel="noopener" style="display:inline-block;flex:0 0 auto;background:#b32025;color:#fff;text-decoration:none;font-weight:700;padding:14px 20px;border-radius:3px">Rooibos NA brochure (PDF)</a>
+            <a href="assets/certs/serendib-ingredients-brochure.pdf" target="_blank" rel="noopener" style="display:inline-block;flex:0 0 auto;background:#fff;color:#242424;border:1px solid #dfd8ce;text-decoration:none;font-weight:700;padding:14px 20px;border-radius:3px">Serendib Ingredients brochure (PDF)</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  </sc-if>
+
+  <!-- ============================ PRODUCTS ============================ -->
+  <sc-if value="{{ isProducts }}">
+  <div data-screen-label="Products">
+
+    <section style="padding:70px 0 0">
+      <div style="width:min(1180px,calc(100% - 40px));margin:auto;max-width:860px">
+        <div style="font-size:12px;font-weight:800;letter-spacing:.16em;color:#b32025;text-transform:uppercase;margin-bottom:18px">Ingredient portfolio</div>
+        <h1 style="font-family:Georgia,'Times New Roman',serif;font-weight:500;line-height:1.05;margin:0;font-size:clamp(40px,5vw,64px);text-wrap:pretty">What we supply</h1>
+        <p style="font-size:19px;color:#626262;margin:22px 0 0;text-wrap:pretty">Bulk ingredients for manufacturers and wholesalers. Availability and certification details are confirmed by product and batch number.</p>
+        <div style="margin:26px 0 0;padding:20px 24px;background:#f7f3ec;border-left:3px solid #b32025;display:flex;flex-direction:column;gap:12px;font-size:17px;color:#242424">
+          <p style="margin:0;text-wrap:pretty">Teas are supplied in teabag cut and loose leaf. Botanicals are available in teabag cut, special cut and coarse cut.</p>
+          <p style="margin:0;font-size:19px;text-wrap:pretty"><strong>All products are available certified organic, with conventional options available for select ingredients.</strong></p>
+          <p style="margin:0;text-wrap:pretty">In addition, we offer Rooibos and various Botanicals in water-soluble Extract form for use in cosmetics, supplements, baked goods, beverages and a host of different and exciting new applications.</p>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding:60px 0 0">
+      <div style="width:min(1180px,calc(100% - 40px));margin:auto">
+        <h2 style="font-size:15px;text-transform:uppercase;letter-spacing:.14em;color:#496b49;margin:56px 0 8px;font-family:Arial,Helvetica,sans-serif;font-weight:700;margin-top:0">Premium teas</h2>
+        <p style="font-size:16px;color:#666;margin:0 0 22px;max-width:720px;text-wrap:pretty">Supplied in teabag cut and loose leaf.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px">
+          <article style="border:1px solid #dfd8ce;background:#fff;overflow:hidden;border-radius:4px;display:flex;flex-direction:column">
+            <img src="assets/rooibos-flower.jpg" alt="Flowering rooibos plant" style="width:100%;height:220px;object-fit:cover;display:block;background:#f3f0eb">
+            <div style="padding:20px;display:flex;flex-direction:column;flex:1"><span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#b32025;font-weight:800">Origin: South Africa</span><h4 style="font:500 25px/1.1 Georgia,'Times New Roman',serif;margin:7px 0 10px">Rooibos</h4><div style="font-size:14px;color:#666;margin:0;flex:1;display:flex;flex-direction:column;gap:10px"><p style="margin:0;text-wrap:pretty">Grows in the mountainous Cederberg region and thrives under the African sky. It is found nowhere else on earth. This uniquely South African shrub has a pleasantly sweet and mildly earthy taste, with soft fruity and floral undertones and notes of vanilla and honey.</p></div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px"><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Teabag cut</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Loose leaf</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Extract</span></div></div>
+          </article>
+          <article style="border:1px solid #dfd8ce;background:#fff;overflow:hidden;border-radius:4px;display:flex;flex-direction:column">
+            <img src="assets/green-rooibos-plant.jpg" alt="Green rooibos plant" style="width:100%;height:220px;object-fit:cover;display:block;background:#f3f0eb">
+            <div style="padding:20px;display:flex;flex-direction:column;flex:1"><span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#b32025;font-weight:800">Origin: South Africa</span><h4 style="font:500 25px/1.1 Georgia,'Times New Roman',serif;margin:7px 0 10px">Green Rooibos</h4><div style="font-size:14px;color:#666;margin:0;flex:1;display:flex;flex-direction:column;gap:10px"><p style="margin:0;text-wrap:pretty">This is the unoxidized version of Rooibos and has a pleasantly fresh, bright and grassy taste, with slight caramelization mellowing its astringent notes.</p></div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px"><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Teabag cut</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Loose leaf</span></div></div>
+          </article>
+          <article style="border:1px solid #dfd8ce;background:#fff;overflow:hidden;border-radius:4px;display:flex;flex-direction:column">
+            <img src="assets/honeybush-flowering.png" alt="Flowering honeybush plant" style="width:100%;height:220px;object-fit:cover;display:block;background:#f3f0eb">
+            <div style="padding:20px;display:flex;flex-direction:column;flex:1"><span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#b32025;font-weight:800">Origin: South Africa</span><h4 style="font:500 25px/1.1 Georgia,'Times New Roman',serif;margin:7px 0 10px">Honeybush</h4><div style="font-size:14px;color:#666;margin:0;flex:1;display:flex;flex-direction:column;gap:10px"><p style="margin:0;text-wrap:pretty">Between the great mountain ranges separating the edge of the Karoo from the southern shores of Africa, there is a narrow coastal plain stretching some 250km – this territory is the home of the Honeybush plant. It has a delightfully distinctive taste with prominent notes of wildflowers as well as subtle undertones of fruit and sweet spices and a lingering taste of honey.</p></div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px"><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Teabag cut</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Loose leaf</span></div></div>
+          </article>
+        </div>
+
+        <h2 style="font-size:15px;text-transform:uppercase;letter-spacing:.14em;color:#496b49;margin:56px 0 8px;font-family:Arial,Helvetica,sans-serif;font-weight:700">Botanicals</h2>
+        <p style="font-size:16px;color:#666;margin:0 0 22px;max-width:760px;text-wrap:pretty">In partnership with Serendib Ingredients, we offer a carefully sourced portfolio of botanicals grown and processed with a strong focus on quality, traceability and responsible farming practices. Available in a range of cuts, powders and extracts, our botanicals are supplied in bulk to manufacturers, blenders and wholesalers across North America.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px">
+          <article style="border:1px solid #dfd8ce;background:#fff;overflow:hidden;border-radius:4px;display:flex;flex-direction:column">
+            <img src="assets/moringa.jpg" alt="Moringa leaves with moringa powder" style="width:100%;height:220px;object-fit:cover;display:block;background:#f3f0eb">
+            <div style="padding:20px;display:flex;flex-direction:column;flex:1"><span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#b32025;font-weight:800">Origin: Egypt</span><h4 style="font:500 25px/1.1 Georgia,'Times New Roman',serif;margin:7px 0 10px">Moringa</h4><div style="font-size:14px;color:#666;margin:0;flex:1;display:flex;flex-direction:column;gap:10px"><p style="margin:0;text-wrap:pretty">Moringa is a nutrient-rich botanical prized for its naturally fresh, green and slightly earthy flavor. The leaves naturally contain vitamins, minerals, antioxidants and plant compounds, making Moringa a popular ingredient in teas, functional beverages, supplements and wellness formulations.</p><p style="margin:0;text-wrap:pretty">We offer Moringa leaf in a range of cuts, as well as powder and extract, providing flexible options for different product applications and manufacturing requirements.</p></div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px"><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Teabag cut</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Coarse cut</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Special cut</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Powder</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Extract</span></div></div>
+          </article>
+          <article style="border:1px solid #dfd8ce;background:#fff;overflow:hidden;border-radius:4px;display:flex;flex-direction:column">
+            <img src="assets/hibiscus-bud.jpg" alt="Roselle hibiscus calyces on the plant" style="width:100%;height:220px;object-fit:cover;display:block;background:#f3f0eb">
+            <div style="padding:20px;display:flex;flex-direction:column;flex:1"><span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#b32025;font-weight:800">Origin: Egypt</span><h4 style="font:500 25px/1.1 Georgia,'Times New Roman',serif;margin:7px 0 10px">Hibiscus</h4><div style="font-size:14px;color:#666;margin:0;flex:1;display:flex;flex-direction:column;gap:10px"><p style="margin:0;text-wrap:pretty">Hibiscus Sabdariffa is prized for its vibrant ruby-red colour and refreshingly tart, fruity flavour, making it a standout ingredient in teas, infusions and functional beverages. Naturally rich in antioxidants, including anthocyanins, Hibiscus has become increasingly popular in wellness-focused formulations.</p></div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px"><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Teabag cut</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Coarse cut</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Special cut</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Powder</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Extract</span></div></div>
+          </article>
+          <article style="border:1px solid #dfd8ce;background:#fff;overflow:hidden;border-radius:4px;display:flex;flex-direction:column">
+            <img src="assets/chamomile-field.jpg" alt="Chamomile in flower in the field" style="width:100%;height:220px;object-fit:cover;display:block;background:#f3f0eb">
+            <div style="padding:20px;display:flex;flex-direction:column;flex:1"><span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#b32025;font-weight:800">Origin: Egypt</span><h4 style="font:500 25px/1.1 Georgia,'Times New Roman',serif;margin:7px 0 10px">Chamomile</h4><div style="font-size:14px;color:#666;margin:0;flex:1;display:flex;flex-direction:column;gap:10px"><p style="margin:0;text-wrap:pretty">Chamomile is a timeless botanical valued for its delicate floral aroma, gentle sweetness and smooth, soothing character. Traditionally associated with relaxation and calming herbal infusions.</p></div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px"><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Whole flowers</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Teabag cut</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Powder</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Extract</span></div></div>
+          </article>
+          <article style="border:1px solid #dfd8ce;background:#fff;overflow:hidden;border-radius:4px;display:flex;flex-direction:column">
+            <img src="assets/peppermint-dark.jpg" alt="Dark green peppermint leaves" style="width:100%;height:220px;object-fit:cover;display:block;background:#f3f0eb">
+            <div style="padding:20px;display:flex;flex-direction:column;flex:1"><span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#b32025;font-weight:800">Origin: Egypt</span><h4 style="font:500 25px/1.1 Georgia,'Times New Roman',serif;margin:7px 0 10px">Peppermint</h4><div style="font-size:14px;color:#666;margin:0;flex:1;display:flex;flex-direction:column;gap:10px"><p style="margin:0;text-wrap:pretty">Bold, crisp and unmistakably cooling, Peppermint delivers an intense menthol freshness that gives teas, beverages and botanical formulations an immediate lift. Its clean, invigorating character makes it especially popular in refreshing herbal blends and functional applications.</p></div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px"><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Teabag cut</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Coarse cut</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Special cut</span></div></div>
+          </article>
+          <article style="border:1px solid #dfd8ce;background:#fff;overflow:hidden;border-radius:4px;display:flex;flex-direction:column">
+            <img src="assets/spearmint-light.jpg" alt="Bright green spearmint leaves" style="width:100%;height:220px;object-fit:cover;display:block;background:#f3f0eb">
+            <div style="padding:20px;display:flex;flex-direction:column;flex:1"><span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#b32025;font-weight:800">Origin: Egypt</span><h4 style="font:500 25px/1.1 Georgia,'Times New Roman',serif;margin:7px 0 10px">Spearmint</h4><div style="font-size:14px;color:#666;margin:0;flex:1;display:flex;flex-direction:column;gap:10px"><p style="margin:0;text-wrap:pretty">Spearmint offers a softer, naturally sweeter mint profile, with a fresh aroma and gentle herbal character rather than the pronounced cooling sensation of Peppermint. Its smooth, approachable flavor works beautifully in herbal teas, wellness blends and beverage formulations, both on its own and paired with other botanicals.</p></div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px"><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Teabag cut</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Coarse cut</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Special cut</span></div></div>
+          </article>
+          <article style="border:1px solid #dfd8ce;background:#fff;overflow:hidden;border-radius:4px;display:flex;flex-direction:column">
+            <img src="assets/fennel.jpg" alt="Fennel seed with a wooden scoop" style="width:100%;height:220px;object-fit:cover;display:block;background:#f3f0eb">
+            <div style="padding:20px;display:flex;flex-direction:column;flex:1"><span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#b32025;font-weight:800">Origin: Egypt</span><h4 style="font:500 25px/1.1 Georgia,'Times New Roman',serif;margin:7px 0 10px">Fennel</h4><div style="font-size:14px;color:#666;margin:0;flex:1;display:flex;flex-direction:column;gap:10px"><p style="margin:0;text-wrap:pretty">Fennel is an aromatic botanical with a naturally sweet, warm flavor and distinctive notes of anise and licorice. Traditionally enjoyed in herbal infusions and digestive blends, its fragrant character also makes it a versatile ingredient for teas, wellness formulations and botanical blends. We offer premium Fennel seed in both whole and crushed form for bulk commercial and manufacturing applications.</p></div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px"><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Whole</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Crushed</span></div></div>
+          </article>
+          <article style="border:1px solid #dfd8ce;background:#fff;overflow:hidden;border-radius:4px;display:flex;flex-direction:column">
+            <img src="assets/lemongrass.jpg" alt="Cut dried lemongrass" style="width:100%;height:220px;object-fit:cover;display:block;background:#f3f0eb">
+            <div style="padding:20px;display:flex;flex-direction:column;flex:1"><span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#b32025;font-weight:800">Origin: Egypt</span><h4 style="font:500 25px/1.1 Georgia,'Times New Roman',serif;margin:7px 0 10px">Lemongrass</h4><div style="font-size:14px;color:#666;margin:0;flex:1;display:flex;flex-direction:column;gap:10px"><p style="margin:0;text-wrap:pretty">Lemongrass brings a bright, refreshing citrus character with subtle grassy notes and a clean finish. Its light, uplifting flavour.</p></div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px"><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Teabag cut</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Coarse cut</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Special cut</span></div></div>
+          </article>
+          <article style="border:1px solid #dfd8ce;background:#fff;overflow:hidden;border-radius:4px;display:flex;flex-direction:column">
+            <img src="assets/lemon-myrtle.jpg" alt="Lemon myrtle leaves" style="width:100%;height:220px;object-fit:cover;display:block;background:#f3f0eb">
+            <div style="padding:20px;display:flex;flex-direction:column;flex:1"><span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#b32025;font-weight:800">Origin: Australia</span><h4 style="font:500 25px/1.1 Georgia,'Times New Roman',serif;margin:7px 0 10px">Lemon Myrtle</h4><div style="font-size:14px;color:#666;margin:0;flex:1;display:flex;flex-direction:column;gap:10px"><p style="margin:0;text-wrap:pretty">Lemon Myrtle is prized for its intensely aromatic, distinctly lemon-forward flavor and fragrance. Naturally high in citral, it delivers a powerful citrus profile even at relatively low inclusion levels.</p></div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px"><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">2mm</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">6mm</span></div></div>
+          </article>
+          <article style="border:1px solid #dfd8ce;background:#fff;overflow:hidden;border-radius:4px;display:flex;flex-direction:column">
+            <img src="assets/licorice.jpg" alt="Cut dried licorice root" style="width:100%;height:220px;object-fit:cover;display:block;background:#f3f0eb">
+            <div style="padding:20px;display:flex;flex-direction:column;flex:1"><span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#b32025;font-weight:800">Origin: Egypt</span><h4 style="font:500 25px/1.1 Georgia,'Times New Roman',serif;margin:7px 0 10px">Licorice Root</h4><div style="font-size:14px;color:#666;margin:0;flex:1;display:flex;flex-direction:column;gap:10px"><p style="margin:0;text-wrap:pretty">Licorice Root is valued for its distinctive natural sweetness, warm earthy character and lingering finish. Naturally much sweeter than sugar, it can add depth and balance to herbal formulations while complementing stronger or more bitter botanicals.</p></div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px"><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Teabag cut</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Coarse cut</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Special cut</span></div></div>
+          </article>
+        </div>
+
+        <h2 style="font-size:15px;text-transform:uppercase;letter-spacing:.14em;color:#496b49;margin:56px 0 8px;font-family:Arial,Helvetica,sans-serif;font-weight:700">Rosehips</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px">
+          <article style="border:1px solid #dfd8ce;background:#fff;overflow:hidden;border-radius:4px;display:flex;flex-direction:column">
+            <img src="assets/rosehip-cuts.jpg" alt="Rosehip shells and cut grades" style="width:100%;height:220px;object-fit:cover;display:block;background:#f3f0eb">
+            <div style="padding:20px;display:flex;flex-direction:column;flex:1"><span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#b32025;font-weight:800">Origin: Lesotho</span><h4 style="font:500 25px/1.1 Georgia,'Times New Roman',serif;margin:7px 0 10px">Rosehips</h4><div style="font-size:14px;color:#666;margin:0;flex:1;display:flex;flex-direction:column;gap:10px"><p style="margin:0;text-wrap:pretty">The thorny creeper nestles between the dramatic peaks of Lesotho’s majestic Maluti Mountains, where it reveals its vast healing potentials. Rosehip offers a delicate, characteristically floral, and slightly sweet flavour with a distinctly tart aftertaste. They are abounding in antioxidants, containing high levels of polyphenols, carotenoids, and vitamins C and E.</p></div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px"><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Teabag cut</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Coarse cut</span><span style="font-size:11px;font-weight:700;letter-spacing:.03em;background:#f3eee6;border:1px solid #e2d9cb;color:#5c5346;padding:4px 9px">Shells</span></div></div>
+          </article>
+          <article style="border:1px solid #dfd8ce;background:#fff;overflow:hidden;border-radius:4px;display:flex;flex-direction:column">
+            <img src="assets/rosehip-oil.jpg" alt="Rosehip seed oil with rosehips" style="width:100%;height:220px;object-fit:cover;display:block;background:#f3f0eb">
+            <div style="padding:20px;display:flex;flex-direction:column;flex:1"><span style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#b32025;font-weight:800">Origin: Lesotho</span><h4 style="font:500 25px/1.1 Georgia,'Times New Roman',serif;margin:7px 0 10px">Organic Rosehip Seed Oil / Rosa Canina Seed Oil</h4><div style="font-size:14px;color:#666;margin:0;flex:1;display:flex;flex-direction:column;gap:10px"><p style="margin:0;text-wrap:pretty">Rosa Canina Seed Oil is a highly valued cosmetic and personal care ingredient, prized for its lightweight skin feel and naturally occurring essential fatty acids. Rich in linoleic and linolenic acids, it is widely used in facial oils, serums, creams, lotions and other skin and hair care formulations. Its nourishing and conditioning properties make it particularly well suited to formulations designed to support soft, smooth and well-conditioned skin.</p><p style="margin:0;text-wrap:pretty"><strong style="color:#242424">Available in bulk 191 kg (approximately 421 lb) drums for commercial cosmetic and personal care manufacturing.</strong></p></div><div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:16px"></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="botanicals" style="padding:90px 0;margin-top:80px;background:#f3eee6">
+      <div style="width:min(1180px,calc(100% - 40px));margin:auto">
+        <div style="max-width:860px;margin-bottom:46px">
+          <div style="font-size:12px;font-weight:800;letter-spacing:.16em;color:#b32025;text-transform:uppercase;margin-bottom:18px">Our fastest-growing range</div>
+          <h2 style="font-family:Georgia,'Times New Roman',serif;font-weight:500;line-height:1.05;margin:0;font-size:clamp(36px,4.6vw,54px);text-wrap:pretty">Extracts &amp; powders</h2>
+          <div style="display:flex;flex-direction:column;gap:16px;margin-top:22px;font-size:17px;color:#5c5c5c">
+            <p style="margin:0;text-wrap:pretty">Our Extracts &amp; Powders portfolio brings the versatility of our botanical ingredients into concentrated and easy-to-use formats for today’s food, beverage, supplement, nutraceutical, cosmetic and personal care industries.</p>
+            <p style="margin:0;text-wrap:pretty">Working with Rooibos Limited in South Africa and Serendib Ingredients, Rooibos North America provides access to botanical powders and extracts developed for a wide range of commercial applications. From Rooibos to Moringa, Hibiscus, Chamomile and other botanicals, these formats allow manufacturers and product developers to incorporate botanical ingredients into formulations where traditional cut leaf or whole botanical material may not be suitable.</p>
+            <p style="margin:0;text-wrap:pretty">Our offering combines ingredient expertise, carefully controlled processing and dependable sourcing, with a focus on preserving the natural characteristics and valuable compounds of the original plant material.</p>
+            <p style="margin:0;text-wrap:pretty">Whether developing a functional beverage, instant drink, nutritional supplement, food product, skincare formulation or an entirely new botanical application, our Extracts and Powders provide manufacturers with greater flexibility in formulation, dosage and product development.</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px">
+          <figure style="margin:0;background:#fff;border:1px solid #dfd8ce;border-radius:4px;overflow:hidden">
+            <img src="assets/rooibos-extract.png" alt="Rooibos extract powder on a wooden spoon" style="width:100%;height:240px;object-fit:cover;display:block;background:#f3f0eb">
+            <figcaption style="padding:14px 18px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5c5346">Rooibos extract</figcaption>
+          </figure>
+          <figure style="margin:0;background:#fff;border:1px solid #dfd8ce;border-radius:4px;overflow:hidden">
+            <img src="assets/botanical-powders-extract.png" alt="Botanical powders with a liquid extract" style="width:100%;height:240px;object-fit:cover;object-position:center 40%;display:block;background:#f3f0eb">
+            <figcaption style="padding:14px 18px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5c5346">Botanical Extracts &amp; Powders</figcaption>
+          </figure>
+          <figure style="margin:0;background:#fff;border:1px solid #dfd8ce;border-radius:4px;overflow:hidden">
+            <img src="assets/moringa.jpg" alt="Moringa powder with fresh and dried leaves" style="width:100%;height:240px;object-fit:cover;display:block;background:#f3f0eb">
+            <figcaption style="padding:14px 18px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5c5346">Moringa</figcaption>
+          </figure>
+          <figure style="margin:0;background:#fff;border:1px solid #dfd8ce;border-radius:4px;overflow:hidden">
+            <img src="assets/hibiscus-powder.jpg" alt="Hibiscus powder with dried hibiscus" style="width:100%;height:240px;object-fit:cover;display:block;background:#f3f0eb">
+            <figcaption style="padding:14px 18px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5c5346">Hibiscus</figcaption>
+          </figure>
+          <figure style="margin:0;background:#fff;border:1px solid #dfd8ce;border-radius:4px;overflow:hidden">
+            <img src="assets/chamomile-powder.jpg" alt="Chamomile powder and dried chamomile flowers" style="width:100%;height:240px;object-fit:cover;display:block;background:#f3f0eb">
+            <figcaption style="padding:14px 18px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#5c5346">Chamomile</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  </sc-if>
+
+  <!-- ============================ ABOUT ============================ -->
+  <sc-if value="{{ isAbout }}">
+  <div data-screen-label="About">
+
+    <section style="padding:70px 0 0">
+      <div style="width:min(1180px,calc(100% - 40px));margin:auto">
+        <img src="assets/rooibos-field.jpg" alt="Rooibos plantation in the Cederberg" style="width:100%;height:clamp(240px,38vw,440px);object-fit:cover;border-radius:4px;display:block">
+      </div>
+    </section>
+
+    <section style="padding:80px 0">
+      <div style="width:min(1180px,calc(100% - 40px));margin:auto">
+        <div style="max-width:880px">
+          <div style="font-size:12px;font-weight:800;letter-spacing:.16em;color:#b32025;text-transform:uppercase;margin-bottom:18px">Who we are</div>
+          <h2 style="font-family:Georgia,'Times New Roman',serif;font-weight:500;line-height:1.15;margin:0;font-size:clamp(26px,3.2vw,40px);text-wrap:pretty">Rooibos North America LLC is your preferred supplier for unparalleled quality Rooibos, Honeybush, Hibiscus, Chamomile, Rosehips, other Botanicals, Extracts and Powders.</h2>
+          <p style="font-size:19px;color:#555;margin:24px 0 0;text-wrap:pretty">Rooibos North America is the company North American manufacturers and wholesalers buy from, and behind it stand two strategic partners who actually farm the range. Rooibos Ltd has grown and processed Rooibos and Honeybush in the Cederberg since 1954 and remains the oldest and largest producer in the world, while Serendib Ingredients grows, cuts and mills the botanical side — Hibiscus, Chamomile, Peppermint, Spearmint, Fennel and Lemongrass — using desert drilling to ensure responsible, pure water management. Strategically aligned with two of the industry’s leading producers – Rooibos Ltd and Serendib Ingredients – Rooibos North America brings together two globally established ingredient portfolios under one trusted North American supply partner.</p>
+        </div>
+        <div style="margin-top:44px;padding-top:34px;border-top:1px solid #e6ded2;display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:center;gap:34px 64px">
+          <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
+            <div style="height:150px;display:flex;align-items:center">
+              <img src="assets/logo-rooibos-na.png" alt="Rooibos North America" style="max-width:100px;max-height:150px;object-fit:contain;display:block">
+            </div>
+            <span style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7a7268">Rooibos North America</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
+            <div style="height:150px;display:flex;align-items:center">
+              <img src="assets/logo-rooibos-ltd.png" alt="Rooibos Ltd" style="max-width:100px;max-height:140px;object-fit:contain;display:block">
+            </div>
+            <span style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7a7268">Rooibos Ltd &middot; South Africa</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px">
+            <div style="height:150px;display:flex;align-items:center">
+              <img src="assets/logo-serendib.jpg" alt="Serendib Ingredients" style="max-width:190px;max-height:66px;object-fit:contain;display:block">
+            </div>
+            <span style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#7a7268">Serendib Ingredients &middot; Egypt</span>
+          </div>
+        </div>
+
+        </div>
+    </section>
+
+    <section style="padding:80px 0;background:#f3eee6">
+      <div style="width:min(1180px,calc(100% - 40px));margin:auto">
+        <div style="max-width:760px;margin-bottom:44px">
+          <div style="font-size:12px;font-weight:800;letter-spacing:.16em;color:#b32025;text-transform:uppercase;margin-bottom:18px">Our values</div>
+          <h2 style="font-family:Georgia,'Times New Roman',serif;font-weight:500;line-height:1.05;margin:0;font-size:clamp(32px,4vw,48px);text-wrap:pretty">Building real value across the chain.</h2>
+          <p style="font-size:18px;color:#5c5c5c;margin:20px 0 0;text-wrap:pretty">Rooibos North America LLC believes in building lasting relationships with all stakeholders in the value chain, from our farmers all the way through to our clients, in a way that builds real value for everyone involved.</p>
+        </div>
+        <div style="display:flex;align-items:center;gap:18px;margin-bottom:22px">
+          <img src="assets/logo-rooibos-ltd.png" alt="Rooibos Ltd" style="max-height:64px;max-width:64px;object-fit:contain;display:block">
+          <h3 style="font-size:15px;text-transform:uppercase;letter-spacing:.14em;color:#496b49;margin:0;font-family:Arial,Helvetica,sans-serif;font-weight:700">Rooibos Ltd (South Africa) values include:</h3>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px">
+          <div style="background:#fff;border:1px solid #dfd8ce;padding:26px">
+            <h3 style="font:500 26px/1.1 Georgia,'Times New Roman',serif;margin:0 0 12px">Accountability</h3>
+            <p style="font-size:15px;color:#666;margin:0;text-wrap:pretty">Rooibos Ltd’s employees are empowered to be self-reliant and innovative in their thinking and a flat management structure ensures that everyone has a voice. Rooibos Ltd also offers full traceability on all product back to source and, as a responsible business, holds FSSC 22000 certification.</p>
+          </div>
+          <div style="background:#fff;border:1px solid #dfd8ce;padding:26px">
+            <h3 style="font:500 26px/1.1 Georgia,'Times New Roman',serif;margin:0 0 12px">Sustainability</h3>
+            <p style="font-size:15px;color:#666;margin:0;text-wrap:pretty">Rooibos Ltd offers hands-on support to its farmers through research, technical assistance and guidance on certification. Rooibos Ltd’s factories are aimed towards a zero-waste culture, and Rooibos Ltd has one of the largest solar installations in Southern Africa to assist in offsetting its carbon footprint.</p>
+          </div>
+          <div style="background:#fff;border:1px solid #dfd8ce;padding:26px">
+            <h3 style="font:500 26px/1.1 Georgia,'Times New Roman',serif;margin:0 0 12px">Social responsibility</h3>
+            <p style="font-size:15px;color:#666;margin:0;text-wrap:pretty">Rooibos is produced in a tiny region with a small close-knit community, and Rooibos Ltd believes that the prosperity of the members is its prosperity too. Rooibos Ltd provides the community with effective sports, academic and cultural initiatives.</p>
+          </div>
+          <div style="background:#fff;border:1px solid #dfd8ce;padding:26px">
+            <h3 style="font:500 26px/1.1 Georgia,'Times New Roman',serif;margin:0 0 12px">Inter-connectedness</h3>
+            <p style="font-size:15px;color:#666;margin:0;text-wrap:pretty">Rooibos Ltd firmly believes that the success of one is the success of all and that the whole industry shares one common goal — the long-term success of this singularly unique industry. These relationships are built on transparency, trust and mutual positive growth.</p>
+          </div>
+          <div style="background:#fff;border:1px solid #dfd8ce;padding:26px">
+            <h3 style="font:500 26px/1.1 Georgia,'Times New Roman',serif;margin:0 0 12px">Excellence</h3>
+            <p style="font-size:15px;color:#666;margin:0;text-wrap:pretty">As the oldest and largest processor in the world, Rooibos truly runs in Rooibos Ltd’s veins. Rooibos Ltd’s knowledge is built up over generations of people passionate about Rooibos, coupled with innovative thinking and world-class quality standards.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding:80px 0">
+      <div style="width:min(1180px,calc(100% - 40px));margin:auto">
+        <div style="max-width:820px;margin-bottom:44px">
+          <img src="assets/logo-serendib.jpg" alt="Serendib Ingredients" style="max-width:190px;max-height:66px;object-fit:contain;display:block;margin-bottom:26px">
+          <div style="font-size:12px;font-weight:800;letter-spacing:.16em;color:#b32025;text-transform:uppercase;margin-bottom:18px">In partnership with</div>
+          <h2 style="font-family:Georgia,'Times New Roman',serif;font-weight:500;line-height:1.05;margin:0;font-size:clamp(32px,4vw,48px);text-wrap:pretty">Serendib Ingredients</h2>
+          <p style="font-size:18px;color:#5c5c5c;margin:20px 0 0;text-wrap:pretty">Originating in Sri Lanka, Serendib Ingredients has gone on to establish a global footprint, with farms and production facilities in Sri Lanka, Egypt, Tanzania, Kenya and Uganda and distribution in Germany, the UK, Canada, the US and the Gulf region.</p>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px">
+          <div style="background:#f7f3ec;border:1px solid #dfd8ce;padding:26px">
+            <h3 style="font:500 26px/1.1 Georgia,'Times New Roman',serif;margin:0 0 12px">Regenerative farming</h3>
+            <p style="font-size:15px;color:#666;margin:0;text-wrap:pretty">Healthy soils and long-term sustainability</p>
+          </div>
+          <div style="background:#f7f3ec;border:1px solid #dfd8ce;padding:26px">
+            <h3 style="font:500 26px/1.1 Georgia,'Times New Roman',serif;margin:0 0 12px">Responsible water management</h3>
+            <p style="font-size:15px;color:#666;margin:0;text-wrap:pretty">Clean, carefully managed irrigation</p>
+          </div>
+          <div style="background:#f7f3ec;border:1px solid #dfd8ce;padding:26px">
+            <h3 style="font:500 26px/1.1 Georgia,'Times New Roman',serif;margin:0 0 12px">Biodiversity</h3>
+            <p style="font-size:15px;color:#666;margin:0;text-wrap:pretty">Pollinator and ecosystem stewardship</p>
+          </div>
+          <div style="background:#f7f3ec;border:1px solid #dfd8ce;padding:26px">
+            <h3 style="font:500 26px/1.1 Georgia,'Times New Roman',serif;margin:0 0 12px">Expert agronomy</h3>
+            <p style="font-size:15px;color:#666;margin:0;text-wrap:pretty">Field specialists working directly with growers</p>
+          </div>
+          <div style="background:#f7f3ec;border:1px solid #dfd8ce;padding:26px">
+            <h3 style="font:500 26px/1.1 Georgia,'Times New Roman',serif;margin:0 0 12px">Ethical partnerships</h3>
+            <p style="font-size:15px;color:#666;margin:0;text-wrap:pretty">Long-term relationships with farming communities</p>
+          </div>
+          <div style="background:#f7f3ec;border:1px solid #dfd8ce;padding:26px">
+            <h3 style="font:500 26px/1.1 Georgia,'Times New Roman',serif;margin:0 0 12px">Reliable supply</h3>
+            <p style="font-size:15px;color:#666;margin:0;text-wrap:pretty">Integrated sourcing and year-round availability</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+  </sc-if>
+
+  <!-- ============================ CERTIFICATIONS ============================ -->
+  <sc-if value="{{ isCerts }}">
+  <div data-screen-label="Certifications">
+
+    <section style="padding:70px 0 0">
+      <div style="width:min(1180px,calc(100% - 40px));margin:auto;max-width:860px">
+        <div style="font-size:12px;font-weight:800;letter-spacing:.16em;color:#b32025;text-transform:uppercase;margin-bottom:18px">Certifications &amp; accreditations</div>
+        <h1 style="font-family:Georgia,'Times New Roman',serif;font-weight:500;line-height:1.05;margin:0;font-size:clamp(40px,5vw,64px);text-wrap:pretty">Certified, audited and documented.</h1>
+        <p style="font-size:19px;color:#626262;margin:22px 0 0;text-wrap:pretty">Our products are certified by organisations that serve as a hallmark of quality and sustainability for customers all over the world. Current certificates can be downloaded below.</p>
+      </div>
+    </section>
+
+    <section style="padding:56px 0">
+      <div style="width:min(1180px,calc(100% - 40px));margin:auto;display:flex;flex-wrap:wrap;gap:20px">
+        <div style="background:#fff;border:1px solid #dfd8ce;border-radius:4px;padding:24px;display:flex;flex-direction:column;align-items:center;gap:14px;min-width:200px;flex:1 1 200px">
+          <img src="assets/logo-fairtrade.jpg" alt="Fair Trade Certified" style="max-width:120px;max-height:120px;object-fit:contain;display:block">
+          <strong style="font-size:14px;text-align:center">Fair Trade Certified</strong>
+        </div>
+        <div style="background:#fff;border:1px solid #dfd8ce;border-radius:4px;padding:24px;display:flex;flex-direction:column;align-items:center;gap:14px;min-width:200px;flex:1 1 200px">
+          <img src="assets/logo-rainforest.jpg" alt="Rainforest Alliance Certified" style="max-width:140px;max-height:120px;object-fit:contain;display:block">
+          <strong style="font-size:14px;text-align:center">Rainforest Alliance Certified</strong>
+        </div>
+        <div style="background:#f7f3ec;border:1px solid #dfd8ce;border-radius:4px;padding:24px;display:flex;flex-direction:column;justify-content:center;gap:10px;min-width:220px;flex:2 1 320px">
+          <p style="margin:0;font-size:16px;color:#555;text-wrap:pretty">Fair Trade and Rainforest Alliance certificates are available on request.</p>
+          <a href="#contact" onClick="{{ goContact }}" style="font-size:13px;font-weight:700;color:#b32025;letter-spacing:.06em;text-transform:uppercase;text-decoration:none">Request a certificate</a>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding:0 0 40px">
+      <div style="width:min(1180px,calc(100% - 40px));margin:auto">
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:6px"><img src="assets/logo-rooibos-ltd.png" alt="" style="max-height:56px;max-width:56px;object-fit:contain"><h2 style="font-family:Georgia,'Times New Roman',serif;font-weight:500;margin:0;font-size:clamp(26px,3vw,36px)">Rooibos Ltd · South Africa</h2></div>
+        
+        <h2 style="font-size:15px;text-transform:uppercase;letter-spacing:.14em;color:#496b49;margin:56px 0 8px;font-family:Arial,Helvetica,sans-serif;font-weight:700;margin-top:0">Food safety</h2><div style="height:12px"></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px">
+          <a href="https://rooibosltd.co.za/wp-content/uploads/2025/01/Final-Cert-Rooibos-FSSC-v6-Exp_Jan-2028.pdf" target="_blank" rel="noopener" style="display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;border:1px solid #dfd8ce;padding:22px" style-hover="border-color:#b32025">
+            <img src="https://rooibosltd.co.za/wp-content/uploads/2024/05/Rooibos-website-dev03-Certifications-Endorsements-page-Food-Safety-Certificates-FSSC-22000-300x254-removebg-preview.png" alt="" style="height:84px;width:100%;object-fit:contain;object-position:left center;display:block;margin-bottom:14px">
+            <strong style="display:block;font-size:17px">FSSC 22000</strong>
+            <span style="display:block;font-size:13px;color:#666;margin-top:6px">Valid to January 2028</span>
+            <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:#b32025;letter-spacing:.06em;text-transform:uppercase">Download PDF</span>
+          </a>
+          <a href="https://rooibosltd.co.za/wp-content/uploads/2024/05/20230215072959038.pdf" target="_blank" rel="noopener" style="display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;border:1px solid #dfd8ce;padding:22px" style-hover="border-color:#b32025">
+            <img src="https://rooibosltd.co.za/wp-content/uploads/2024/05/ROOIBO3-300x254-removebg-preview.png" alt="" style="height:84px;width:100%;object-fit:contain;object-position:left center;display:block;margin-bottom:14px">
+            <strong style="display:block;font-size:17px">Certificate of Acceptability</strong>
+            <span style="display:block;font-size:13px;color:#666;margin-top:6px">Food premises · West Coast District Municipality</span>
+            <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:#b32025;letter-spacing:.06em;text-transform:uppercase">Download PDF</span>
+          </a>
+          <a href="https://rooibosltd.co.za/wp-content/uploads/2026/03/17.03.2026-Rooibos-26.03.2026.pdf" target="_blank" rel="noopener" style="display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;border:1px solid #dfd8ce;padding:22px" style-hover="border-color:#b32025">
+            <img src="https://rooibosltd.co.za/wp-content/uploads/2024/05/Rooibos-website-dev03-Certifications-Endorsements-page-Food-Safety-Certificates-GMO-300x254-removebg-preview.png" alt="" style="height:84px;width:100%;object-fit:contain;object-position:left center;display:block;margin-bottom:14px">
+            <strong style="display:block;font-size:17px">Non-GMO</strong>
+            <span style="display:block;font-size:13px;color:#666;margin-top:6px">2026</span>
+            <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:#b32025;letter-spacing:.06em;text-transform:uppercase">Download PDF</span>
+          </a>
+          <a href="https://rooibosltd.co.za/wp-content/uploads/2025/12/Rooibos-Limited-Certificate-of-Compliance-2025-2026_unlocked.pdf" target="_blank" rel="noopener" style="display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;border:1px solid #dfd8ce;padding:22px" style-hover="border-color:#b32025">
+            <img src="https://rooibosltd.co.za/wp-content/uploads/2024/05/Rooibos-website-dev03-Certifications-Endorsements-page-Food-Safety-Certificates-GMP-300x254-removebg-preview.png" alt="" style="height:84px;width:100%;object-fit:contain;object-position:left center;display:block;margin-bottom:14px">
+            <strong style="display:block;font-size:17px">GMP Certificate of Compliance</strong>
+            <span style="display:block;font-size:13px;color:#666;margin-top:6px">2025–2026</span>
+            <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:#b32025;letter-spacing:.06em;text-transform:uppercase">Download PDF</span>
+          </a>
+        </div>
+        
+        <h2 style="font-size:15px;text-transform:uppercase;letter-spacing:.14em;color:#496b49;margin:56px 0 8px;font-family:Arial,Helvetica,sans-serif;font-weight:700">Organic</h2><div style="height:12px"></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px">
+          <a href="https://rooibosltd.co.za/wp-content/uploads/2026/03/ZA-BIO-140.710-0000129.2026.001_signed.pdf" target="_blank" rel="noopener" style="display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;border:1px solid #dfd8ce;padding:22px" style-hover="border-color:#b32025">
+            <img src="https://rooibosltd.co.za/wp-content/uploads/2024/05/Rooibos-website-dev03-Certifications-Endorsements-page-Organic-Certificates-EU-300x254-removebg-preview.png" alt="" style="height:84px;width:100%;object-fit:contain;object-position:left center;display:block;margin-bottom:14px">
+            <strong style="display:block;font-size:17px">EU Organic</strong>
+            <span style="display:block;font-size:13px;color:#666;margin-top:6px">2026</span>
+            <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:#b32025;letter-spacing:.06em;text-transform:uppercase">Download PDF</span>
+          </a>
+          <a href="https://rooibosltd.co.za/wp-content/uploads/2026/03/Certificate_4083400007_03-18-2026_01-41-15_AM.pdf" target="_blank" rel="noopener" style="display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;border:1px solid #dfd8ce;padding:22px" style-hover="border-color:#b32025">
+            <img src="https://rooibosltd.co.za/wp-content/uploads/2024/05/Rooibos-website-dev03-Certifications-Endorsements-page-Organic-Certificates-NOP-300x254-removebg-preview.png" alt="" style="height:84px;width:100%;object-fit:contain;object-position:left center;display:block;margin-bottom:14px">
+            <strong style="display:block;font-size:17px">USDA / NOP Organic</strong>
+            <span style="display:block;font-size:13px;color:#666;margin-top:6px">2026</span>
+            <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:#b32025;letter-spacing:.06em;text-transform:uppercase">Download PDF</span>
+          </a>
+          <a href="https://rooibosltd.co.za/wp-content/uploads/2026/03/Certificate-JAS_CO-315595.pdf" target="_blank" rel="noopener" style="display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;border:1px solid #dfd8ce;padding:22px" style-hover="border-color:#b32025">
+            <img src="https://rooibosltd.co.za/wp-content/uploads/2024/05/Rooibos-website-dev03-Certifications-Endorsements-page-Organic-Certificates-JAS-300x253-removebg-preview.png" alt="" style="height:84px;width:100%;object-fit:contain;object-position:left center;display:block;margin-bottom:14px">
+            <strong style="display:block;font-size:17px">JAS Organic</strong>
+            <span style="display:block;font-size:13px;color:#666;margin-top:6px">2026</span>
+            <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:#b32025;letter-spacing:.06em;text-transform:uppercase">Download PDF</span>
+          </a>
+        </div>
+        
+        <h2 style="font-size:15px;text-transform:uppercase;letter-spacing:.14em;color:#496b49;margin:56px 0 8px;font-family:Arial,Helvetica,sans-serif;font-weight:700">Other</h2><div style="height:12px"></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px">
+          <a href="https://rooibosltd.co.za/wp-content/uploads/2025/10/BTA_Cert_102861-4.pdf" target="_blank" rel="noopener" style="display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;border:1px solid #dfd8ce;padding:22px" style-hover="border-color:#b32025">
+            <img src="https://rooibosltd.co.za/wp-content/uploads/2024/05/Rooibos-website-dev03-Certifications-Endorsements-page-Other-Certificates-FDA-300x254-removebg-preview.png" alt="" style="height:84px;width:100%;object-fit:contain;object-position:left center;display:block;margin-bottom:14px">
+            <strong style="display:block;font-size:17px">FDA registration</strong>
+            <span style="display:block;font-size:13px;color:#666;margin-top:6px">Certificate</span>
+            <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:#b32025;letter-spacing:.06em;text-transform:uppercase">Download PDF</span>
+          </a>
+          <a href="https://rooibosltd.co.za/wp-content/uploads/2025/08/Rooibos-Tea-Ltd-Kosher-Certificate-2025-08-18_unlocked.pdf" target="_blank" rel="noopener" style="display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;border:1px solid #dfd8ce;padding:22px" style-hover="border-color:#b32025">
+            <img src="https://rooibosltd.co.za/wp-content/uploads/2024/05/Rooibos-website-dev03-Certifications-Endorsements-page-Other-Certificates-Kosher-Parev-300x254-removebg-preview.png" alt="" style="height:84px;width:100%;object-fit:contain;object-position:left center;display:block;margin-bottom:14px">
+            <strong style="display:block;font-size:17px">Kosher Parev</strong>
+            <span style="display:block;font-size:13px;color:#666;margin-top:6px">2025</span>
+            <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:#b32025;letter-spacing:.06em;text-transform:uppercase">Download PDF</span>
+          </a>
+          <a href="https://rooibosltd.co.za/wp-content/uploads/2026/03/2026-Halaal-273-Rooibos-Limited-Expire-28.02.2027.pdf" target="_blank" rel="noopener" style="display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;border:1px solid #dfd8ce;padding:22px" style-hover="border-color:#b32025">
+            <img src="https://rooibosltd.co.za/wp-content/uploads/2024/05/Rooibos-website-dev03-Certifications-Endorsements-page-Other-Certificates-Halaal-300x254-removebg-preview.png" alt="" style="height:84px;width:100%;object-fit:contain;object-position:left center;display:block;margin-bottom:14px">
+            <strong style="display:block;font-size:17px">Halaal</strong>
+            <span style="display:block;font-size:13px;color:#666;margin-top:6px">Valid to February 2027</span>
+            <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:#b32025;letter-spacing:.06em;text-transform:uppercase">Download PDF</span>
+          </a>
+          <a href="https://rooibosltd.co.za/wp-content/uploads/2025/10/Rooibos-Ltd-2025-2026.pdf" target="_blank" rel="noopener" style="display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;border:1px solid #dfd8ce;padding:22px" style-hover="border-color:#b32025">
+            <img src="https://rooibosltd.co.za/wp-content/uploads/2024/05/Rooibos-website-dev03-Certifications-Endorsements-page-Other-Certificates-Heart-Mark-300x254-removebg-preview.png" alt="" style="height:84px;width:100%;object-fit:contain;object-position:left center;display:block;margin-bottom:14px">
+            <strong style="display:block;font-size:17px">Heart Mark</strong>
+            <span style="display:block;font-size:13px;color:#666;margin-top:6px">2025–2026</span>
+            <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:#b32025;letter-spacing:.06em;text-transform:uppercase">Download PDF</span>
+          </a>
+          <a href="https://rooibosltd.co.za/wp-content/uploads/2024/05/2024-ROOIBOS-LTD-DECLARATION-Sedex-May-2024.pdf" target="_blank" rel="noopener" style="display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;border:1px solid #dfd8ce;padding:22px" style-hover="border-color:#b32025">
+            <img src="https://rooibosltd.co.za/wp-content/uploads/2024/05/Rooibos-website-dev03-Certifications-Endorsements-page-Other-Certificates-Sedex-300x254-removebg-preview.png" alt="" style="height:84px;width:100%;object-fit:contain;object-position:left center;display:block;margin-bottom:14px">
+            <strong style="display:block;font-size:17px">Sedex</strong>
+            <span style="display:block;font-size:13px;color:#666;margin-top:6px">Audit declaration</span>
+            <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:#b32025;letter-spacing:.06em;text-transform:uppercase">Download PDF</span>
+          </a>
+          <a href="https://rooibosltd.co.za/wp-content/uploads/2024/05/20210531-EU-GI-register-Rooibos.pdf" target="_blank" rel="noopener" style="display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;border:1px solid #dfd8ce;padding:22px" style-hover="border-color:#b32025">
+            <img src="https://rooibosltd.co.za/wp-content/uploads/2024/05/RO19ED1-300x253-removebg-preview.png" alt="" style="height:84px;width:100%;object-fit:contain;object-position:left center;display:block;margin-bottom:14px">
+            <strong style="display:block;font-size:17px">EU Geographical Indication</strong>
+            <span style="display:block;font-size:13px;color:#666;margin-top:6px">Rooibos GI register</span>
+            <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:#b32025;letter-spacing:.06em;text-transform:uppercase">Download PDF</span>
+          </a>
+          <a href="assets/certs/2026-2027-Product-List-Addendum.pdf" target="_blank" rel="noopener" style="display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;border:1px solid #dfd8ce;padding:22px" style-hover="border-color:#b32025">
+            <strong style="display:block;font-size:17px">2026–2027 Product List Addendum</strong>
+            <span style="display:block;font-size:13px;color:#666;margin-top:6px">Full product list</span>
+            <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:#b32025;letter-spacing:.06em;text-transform:uppercase">Download PDF</span>
+          </a>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:16px;margin:70px 0 6px"><img src="assets/logo-rooibos-na.png" alt="" style="max-height:56px;max-width:56px;object-fit:contain"><h2 style="font-family:Georgia,'Times New Roman',serif;font-weight:500;margin:0;font-size:clamp(26px,3vw,36px)">Rooibos North America</h2></div>
+        
+        <h2 style="font-size:15px;text-transform:uppercase;letter-spacing:.14em;color:#496b49;margin:56px 0 8px;font-family:Arial,Helvetica,sans-serif;font-weight:700;margin-top:0">Organic handling</h2><div style="height:12px"></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px">
+          <a href="assets/certs/OTCO-2026-Handling-Certificate.pdf" target="_blank" rel="noopener" style="display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;border:1px solid #dfd8ce;padding:22px" style-hover="border-color:#b32025">
+            <strong style="display:block;font-size:17px">OTCO Handling Certificate 2026</strong>
+            <span style="display:block;font-size:13px;color:#666;margin-top:6px">Oregon Tilth</span>
+            <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:#b32025;letter-spacing:.06em;text-transform:uppercase">Download PDF</span>
+          </a>
+          <a href="assets/certs/OTCO-2026-Product-List-Addendum.pdf" target="_blank" rel="noopener" style="display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;border:1px solid #dfd8ce;padding:22px" style-hover="border-color:#b32025">
+            <strong style="display:block;font-size:17px">OTCO Product List Addendum 2026</strong>
+            <span style="display:block;font-size:13px;color:#666;margin-top:6px">Certified product list</span>
+            <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:#b32025;letter-spacing:.06em;text-transform:uppercase">Download PDF</span>
+          </a>
+        </div>
+
+        <div style="display:flex;align-items:center;gap:16px;margin:70px 0 6px"><img src="assets/logo-serendib.jpg" alt="" style="max-height:48px;max-width:130px;object-fit:contain"><h2 style="font-family:Georgia,'Times New Roman',serif;font-weight:500;margin:0;font-size:clamp(26px,3vw,36px)">Serendib Ingredients · Egypt</h2></div>
+        
+        <h2 style="font-size:15px;text-transform:uppercase;letter-spacing:.14em;color:#496b49;margin:56px 0 8px;font-family:Arial,Helvetica,sans-serif;font-weight:700;margin-top:0">Organic</h2><div style="height:12px"></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px">
+          <a href="assets/certs/Serendib-Organic-Certificate-2026.pdf" target="_blank" rel="noopener" style="display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;border:1px solid #dfd8ce;padding:22px" style-hover="border-color:#b32025">
+            <strong style="display:block;font-size:17px">USDA Organic Certificate 2026</strong>
+            <span style="display:block;font-size:13px;color:#666;margin-top:6px">BioAgriCert</span>
+            <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:#b32025;letter-spacing:.06em;text-transform:uppercase">Download PDF</span>
+          </a>
+          <a href="assets/certs/Serendib-USDA-Addendum-2026.pdf" target="_blank" rel="noopener" style="display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;border:1px solid #dfd8ce;padding:22px" style-hover="border-color:#b32025">
+            <strong style="display:block;font-size:17px">USDA NOP Addendum 2026</strong>
+            <span style="display:block;font-size:13px;color:#666;margin-top:6px">Certified product list</span>
+            <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:#b32025;letter-spacing:.06em;text-transform:uppercase">Download PDF</span>
+          </a>
+        </div>
+
+        
+        <h2 style="font-size:15px;text-transform:uppercase;letter-spacing:.14em;color:#496b49;margin:56px 0 8px;font-family:Arial,Helvetica,sans-serif;font-weight:700">Brochures</h2><div style="height:12px"></div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px">
+          <a href="assets/certs/rooibos-north-america-trifold-brochure.pdf" target="_blank" rel="noopener" style="display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;border:1px solid #dfd8ce;padding:22px" style-hover="border-color:#b32025">
+            <strong style="display:block;font-size:17px">Rooibos North America brochure</strong>
+            <span style="display:block;font-size:13px;color:#666;margin-top:6px">Trifold</span>
+            <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:#b32025;letter-spacing:.06em;text-transform:uppercase">Download PDF</span>
+          </a>
+          <a href="assets/certs/serendib-ingredients-brochure.pdf" target="_blank" rel="noopener" style="display:flex;flex-direction:column;text-decoration:none;color:inherit;background:#fff;border:1px solid #dfd8ce;padding:22px" style-hover="border-color:#b32025">
+            <strong style="display:block;font-size:17px">Serendib Ingredients brochure</strong>
+            <span style="display:block;font-size:13px;color:#666;margin-top:6px">Trifold</span>
+            <span style="display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:#b32025;letter-spacing:.06em;text-transform:uppercase">Download PDF</span>
+          </a>
+        </div>
+
+        <p style="margin:40px 0 0;font-size:15px;color:#777">New certificates are uploaded as they become available. For a document not listed here, contact us and we will send it directly.</p>
+      </div>
+    </section>
+
+  </div>
+  </sc-if>
+
+  <!-- ============================ NEWS ============================ -->
+  <sc-if value="{{ isNews }}">
+  <div data-screen-label="Rooibos News">
+
+    <section style="padding:70px 0 0">
+      <div style="width:min(1180px,calc(100% - 40px));margin:auto;max-width:860px">
+        <div style="font-size:12px;font-weight:800;letter-spacing:.16em;color:#b32025;text-transform:uppercase;margin-bottom:18px">Rooibos news</div>
+        <h1 style="font-family:Georgia,'Times New Roman',serif;font-weight:500;line-height:1.05;margin:0;font-size:clamp(40px,5vw,64px)">Rooibos news</h1>
+        <p style="font-size:19px;color:#626262;margin:22px 0 0">Stay updated with the latest developments from Rooibos Ltd.</p>
+      </div>
+    </section>
+
+    <section style="padding:56px 0 90px">
+      <div style="width:min(1180px,calc(100% - 40px));margin:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px">
+
+        <article style="border:1px solid #dfd8ce;background:#fff;padding:28px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#b32025;font-weight:800">Rooibos Industry News · June 11, 2026</span>
+          <h3 style="font:500 26px/1.15 Georgia,'Times New Roman',serif;margin:0;text-wrap:pretty">Men's health concerns grow as stress, heart disease and sleep deprivation rise</h3>
+          <p style="font-size:15px;color:#666;margin:0;flex:1">As stress levels rise among South African men – driven by demanding work environments, shift work and lifestyle pressures – research is increasingly turning attention to everyday dietary interventions that may support long-term health.</p>
+          <a href="https://rooibosna.com/mens-health-concerns-grow-as-stress-heart-disease-and-sleep-deprivation-rise/" target="_blank" rel="noopener" style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#b32025;text-decoration:none">Read the article</a>
+        </article>
+
+        <article style="border:1px solid #dfd8ce;background:#fff;padding:28px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#b32025;font-weight:800">Rooibos Industry News · May 19, 2026</span>
+          <h3 style="font:500 26px/1.15 Georgia,'Times New Roman',serif;margin:0;text-wrap:pretty">Growing awareness of caffeine sensitivity drives shift in consumption habits</h3>
+          <p style="font-size:15px;color:#666;margin:0;flex:1">Caffeine powers millions through the day, but for a growing number of people it can trigger unwanted effects, such as jitters, headaches, anxiety and disrupted sleep.</p>
+          <a href="https://rooibosna.com/growing-awareness-of-caffeine-sensitivity-drives-shift-in-consumption-habits/" target="_blank" rel="noopener" style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#b32025;text-decoration:none">Read the article</a>
+        </article>
+
+        <article style="border:1px solid #dfd8ce;background:#fff;padding:28px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#b32025;font-weight:800">Rooibos Industry News · April 16, 2026</span>
+          <h3 style="font:500 26px/1.15 Georgia,'Times New Roman',serif;margin:0;text-wrap:pretty">Scientists identify simple rituals like tea drinking to help rewire focus in a distracted world</h3>
+          <p style="font-size:15px;color:#666;margin:0;flex:1">In a world of endless notifications, relentless multitasking and constant information overload, the ability to focus is slipping through our fingers.</p>
+          <a href="https://rooibosna.com/scientists-identify-simple-rituals-like-tea-drinking-to-help-rewire-focus-in-a-distracted-world/" target="_blank" rel="noopener" style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#b32025;text-decoration:none">Read the article</a>
+        </article>
+
+        <article style="border:1px solid #dfd8ce;background:#fff;padding:28px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#b32025;font-weight:800">Rooibos Industry News · April 16, 2026</span>
+          <h3 style="font:500 26px/1.15 Georgia,'Times New Roman',serif;margin:0;text-wrap:pretty">At nearly 60, Karen Kennedy proves dreams don't expire</h3>
+          <p style="font-size:15px;color:#666;margin:0;flex:1">Her recent quadruple Robben Island crossing – pending Guinness World Records ratification – positions her as the first and fastest female to complete the gruelling challenge in skins.</p>
+          <a href="https://rooibosna.com/at-nearly-60-karen-kennedy-proves-dreams-dont-expire/" target="_blank" rel="noopener" style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#b32025;text-decoration:none">Read the article</a>
+        </article>
+
+        <article style="border:1px solid #dfd8ce;background:#fff;padding:28px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#b32025;font-weight:800">Rooibos Industry News · March 5, 2026</span>
+          <h3 style="font:500 26px/1.15 Georgia,'Times New Roman',serif;margin:0;text-wrap:pretty">Rooibos scores a cameo in global Apple TV+ hit "Down Cemetry Road"</h3>
+          <p style="font-size:15px;color:#666;margin:0;flex:1">Down Cemetery Road, the much-anticipated Apple TV+ thriller starring screen legends, Emma Thompson and Ruth Wilson, has put a spotlight on our unique, world-celebrated herbal infusion, Rooibos.</p>
+          <a href="https://rooibosna.com/rooibos-scores-a-cameo-in-global-apple-tv-hit-down-cemetry-road/" target="_blank" rel="noopener" style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#b32025;text-decoration:none">Read the article</a>
+        </article>
+
+        <article style="border:1px solid #dfd8ce;background:#fff;padding:28px;display:flex;flex-direction:column;gap:12px">
+          <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#b32025;font-weight:800">Rooibos Industry News · February 24, 2026</span>
+          <h3 style="font:500 26px/1.15 Georgia,'Times New Roman',serif;margin:0;text-wrap:pretty">As exports grow Rooibos maintains course amid climate and trade pressures</h3>
+          <p style="font-size:15px;color:#666;margin:0;flex:1">The Rooibos industry enters 2026 navigating climatic uncertainty, shifting global trade dynamics and heightened regulatory scrutiny.</p>
+          <a href="https://rooibosna.com/as-exports-grow-rooibos-maintains-course-amid-climate-and-trade-pressures/" target="_blank" rel="noopener" style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#b32025;text-decoration:none">Read the article</a>
+        </article>
+
+      </div>
+      <div style="width:min(1180px,calc(100% - 40px));margin:34px auto 0">
+        <a href="https://rooibosna.com/blogs/" target="_blank" rel="noopener" style="display:inline-block;background:#b32025;color:#fff;text-decoration:none;font-weight:700;padding:14px 20px;border-radius:3px">View all news</a>
+      </div>
+    </section>
+
+  </div>
+  </sc-if>
+
+  <!-- ============================ CONTACT ============================ -->
+  <sc-if value="{{ isContact }}">
+  <div data-screen-label="Contact">
+
+    <section style="padding:70px 0 0">
+      <div style="width:min(1180px,calc(100% - 40px));margin:auto;max-width:860px">
+        <div style="font-size:12px;font-weight:800;letter-spacing:.16em;color:#b32025;text-transform:uppercase;margin-bottom:18px">Contact</div>
+        <h1 style="font-family:Georgia,'Times New Roman',serif;font-weight:500;line-height:1.05;margin:0;font-size:clamp(40px,5vw,64px);text-wrap:pretty">Let's talk tea and botanicals.</h1>
+        <p style="font-size:19px;color:#626262;margin:22px 0 0;text-wrap:pretty">For product, commercial supply or documentation enquiries, contact Rooibos North America directly.</p>
+      </div>
+    </section>
+
+    <section style="padding:56px 0 90px">
+      <div style="width:min(1180px,calc(100% - 40px));margin:auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px">
+        <div style="background:#242424;color:#fff;padding:38px;display:flex;flex-direction:column;gap:8px">
+          <strong style="font-size:22px">Jacqueline Lamond</strong>
+          <span style="color:#cfcfcf">Rooibos North America LLC</span>
+          <a href="tel:+19515952637" style="color:#fff;text-decoration:none;margin-top:12px">951 595 2637</a>
+          <a href="mailto:jackie@rooibosna.com" style="color:#fff;text-decoration:none">jackie@rooibosna.com</a>
+          <a href="https://www.rooibosna.com" target="_blank" rel="noopener" style="color:#fff;text-decoration:none">www.rooibosna.com</a>
+          <span style="color:#cfcfcf;margin-top:12px">27710 Jefferson Ave., Suite 106<br>Temecula, CA 92590 USA</span>
+        </div>
+        <div style="background:#f7f3ec;border:1px solid #dfd8ce;padding:38px">
+          <h2 style="font:500 30px/1.1 Georgia,'Times New Roman',serif;margin:0 0 18px">U.S. warehouses</h2>
+          <p style="font-size:16px;color:#555;margin:0 0 20px">Stock is held on both coasts, so you can draw down from inventory or bring in your own container.</p>
+          <div style="display:grid;gap:14px">
+            <div style="background:#fff;border:1px solid #dfd8ce;padding:18px"><strong style="display:block">Los Angeles, CA</strong><span style="display:block;font-size:13px;color:#666;margin-top:4px">West Coast</span></div>
+            <div style="background:#fff;border:1px solid #dfd8ce;padding:18px"><strong style="display:block">Lorton, VA</strong><span style="display:block;font-size:13px;color:#666;margin-top:4px">East Coast</span></div>
+          </div>
+        </div>
+        <div style="background:#f7f3ec;border:1px solid #dfd8ce;padding:38px">
+          <h2 style="font:500 30px/1.1 Georgia,'Times New Roman',serif;margin:0 0 18px">Documentation</h2>
+          <p style="font-size:16px;color:#555;margin:0 0 20px">Specifications, certificates of analysis and current certification are available on request, or download the current set.</p>
+          <div style="display:flex;flex-direction:column;gap:10px;align-items:flex-start">
+            <a href="#certifications" onClick="{{ goCerts }}" style="display:inline-block;background:#b32025;color:#fff;text-decoration:none;font-weight:700;padding:14px 20px;border-radius:3px">Certificates</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+  </div>
+  </sc-if>
+
+  </main>
+
+  <template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#5d1720"/><circle cx="50" cy="50" r="22" fill="none" stroke="#f7f3ec" stroke-width="3"/><text x="50" y="58" text-anchor="middle" font-family="Georgia,serif" font-size="20" fill="#f7f3ec">RNA</text></svg></template>
+
+<footer style="background:#1c1c1c;color:#bdbdbd;font-size:14px">
+    <div style="width:min(1180px,calc(100% - 40px));margin:auto;padding:56px 0 40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:36px 48px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <strong style="color:#fff;font-size:17px">Rooibos North America LLC</strong>
+        <span style="line-height:1.6">27710 Jefferson Ave., Suite 106<br>Temecula, CA 92590 USA</span>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <span style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#e7b6b8">Contact</span>
+        <span style="color:#fff">Jacqueline Lamond</span>
+        <a href="tel:+19515952637" style="color:#bdbdbd;text-decoration:none" style-hover="color:#fff">951 595 2637</a>
+        <a href="mailto:jackie@rooibosna.com" style="color:#bdbdbd;text-decoration:none" style-hover="color:#fff">jackie@rooibosna.com</a>
+      </div>
+      <nav aria-label="Footer navigation" style="display:flex;flex-direction:column;gap:10px">
+        <span style="font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#e7b6b8">Explore</span>
+        <a href="#products" onClick="{{ goProducts }}" style="color:#bdbdbd;text-decoration:none" style-hover="color:#fff">Products</a>
+        <a href="#about" onClick="{{ goAbout }}" style="color:#bdbdbd;text-decoration:none" style-hover="color:#fff">About</a>
+        <a href="#certifications" onClick="{{ goCerts }}" style="color:#bdbdbd;text-decoration:none" style-hover="color:#fff">Certifications</a>
+        <a href="#contact" onClick="{{ goContact }}" style="color:#bdbdbd;text-decoration:none" style-hover="color:#fff">Contact</a>
+      </nav>
+    </div>
+    <div style="border-top:1px solid #333">
+      <div style="width:min(1180px,calc(100% - 40px));margin:auto;padding:18px 0;font-size:12px;color:#8a8a8a">&copy; 2026 Rooibos North America LLC</div>
+    </div>
+  </footer>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;startPage&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;products&quot;,&quot;about&quot;,&quot;certifications&quot;,&quot;news&quot;,&quot;contact&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Navigation&quot;},&quot;showNewsTab&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Navigation&quot;},&quot;showPartnerMark&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Header&quot;}}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    const fromHash = (typeof location !== 'undefined' && location.hash || '').replace('#', '');
+    const valid = ['home','products','about','certifications','news','contact'];
+    this.state = { page: valid.indexOf(fromHash) >= 0 ? fromHash : (props.startPage || 'home') };
+  }
+
+  carStep(dir) {
+    const el = document.querySelector('[data-car-track]'); if (!el) return;
+    const card = el.querySelector('a'); const w = card ? card.getBoundingClientRect().width + 18 : 300;
+    const max = el.scrollWidth - el.clientWidth;
+    let target = (Math.round(el.scrollLeft / w) + dir) * w;
+    if (dir > 0 && el.scrollLeft >= max - 4) target = 0;
+    else if (dir < 0 && el.scrollLeft <= 4) target = max;
+    target = Math.max(0, Math.min(max, target));
+    if (this._carAnim) cancelAnimationFrame(this._carAnim);
+    const from = el.scrollLeft, t0 = performance.now(), dur = 420;
+    el.style.scrollSnapType = 'none';
+    const tick = (now) => {
+      const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+      el.scrollLeft = from + (target - from) * e;
+      if (k < 1) this._carAnim = requestAnimationFrame(tick);
+      else { this._carAnim = null; el.style.scrollSnapType = 'x proximity'; }
+    };
+    this._carAnim = requestAnimationFrame(tick);
+  }
+  componentDidMount() {
+    this._car = setInterval(() => { if (!this._carPaused && this.state.page === 'home') this.carStep(1); }, 3500);
+    this._onHash = () => {
+      const p = (location.hash || '').replace('#', '') || 'home';
+      const valid = ['home','products','about','certifications','news','contact'];
+      if (valid.indexOf(p) >= 0 && p !== this.state.page) this.setState({ page: p });
+    };
+    window.addEventListener('hashchange', this._onHash);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('hashchange', this._onHash);
+    clearInterval(this._car);
+  }
+
+  go(page, anchor) {
+    return (e) => {
+      if (e && e.preventDefault) e.preventDefault();
+      this.setState({ page: page }, () => {
+        if (anchor) {
+          const el = document.getElementById(anchor);
+          if (el) { window.scrollTo(0, el.getBoundingClientRect().top + window.pageYOffset - 100); return; }
+        }
+        window.scrollTo(0, 0);
+      });
+      try { if (location.hash !== '#' + page) history.replaceState(null, '', '#' + page); } catch (err) {}
+    };
+  }
+
+  renderVals() {
+    const p = this.state.page || 'home';
+    const on = '#b32025', off = '#333', bar = '#b32025', none = 'transparent';
+    return {
+      isHome: p === 'home',
+      isProducts: p === 'products',
+      isAbout: p === 'about',
+      isCerts: p === 'certifications',
+      isNews: p === 'news',
+      isContact: p === 'contact',
+      carNext: () => this.carStep(1),
+      carPrev: () => this.carStep(-1),
+      pauseCar: () => { this._carPaused = true; },
+      resumeCar: () => { this._carPaused = false; },
+      carItems: [
+        { img: 'assets/rooibos-flower.jpg', origin: 'South Africa', name: 'Rooibos', formats: 'Teabag cut, loose leaf and extract' },
+        { img: 'assets/green-rooibos-plant.jpg', origin: 'South Africa', name: 'Green Rooibos', formats: 'Teabag cut and loose leaf' },
+        { img: 'assets/honeybush-flowering.png', origin: 'South Africa', name: 'Honeybush', formats: 'Teabag cut and loose leaf' },
+        { img: 'assets/moringa.jpg', origin: 'Egypt', name: 'Moringa', formats: 'Cuts, powder and extract' },
+        { img: 'assets/hibiscus-bud.jpg', origin: 'Egypt', name: 'Hibiscus', formats: 'Cuts, powder and extract' },
+        { img: 'assets/chamomile-field.jpg', origin: 'Egypt', name: 'Chamomile', formats: 'Whole flowers, teabag cut, powder and extract' },
+        { img: 'assets/peppermint-dark.jpg', origin: 'Egypt', name: 'Peppermint', formats: 'Teabag, coarse and special cut' },
+        { img: 'assets/spearmint-light.jpg', origin: 'Egypt', name: 'Spearmint', formats: 'Teabag, coarse and special cut' },
+        { img: 'assets/fennel.jpg', origin: 'Egypt', name: 'Fennel', formats: 'Whole and crushed' },
+        { img: 'assets/lemongrass.jpg', origin: 'Egypt', name: 'Lemongrass', formats: 'Teabag, coarse and special cut' },
+        { img: 'assets/lemon-myrtle.jpg', origin: 'Australia', name: 'Lemon Myrtle', formats: '2mm and 6mm' },
+        { img: 'assets/licorice.jpg', origin: 'Egypt', name: 'Licorice Root', formats: 'Teabag, coarse and special cut' },
+        { img: 'assets/rosehip-cuts.jpg', origin: 'Lesotho', name: 'Rosehips', formats: 'Teabag cut, coarse cut and shells' },
+        { img: 'assets/rosehip-oil.jpg', origin: 'Lesotho', name: 'Rosehip Seed Oil', formats: 'Bulk 191 kg drums' },
+        { img: 'assets/rooibos-extract.png', origin: 'South Africa · Egypt', name: 'Extracts & Powders', formats: 'Rooibos, Moringa, Hibiscus, Chamomile and more' }
+      ],
+      partnerMark: this.props.showPartnerMark !== false,
+      newsTab: this.props.showNewsTab !== false,
+      cHome: p === 'home' ? on : off,       uHome: p === 'home' ? bar : none,
+      cProducts: p === 'products' ? on : off, uProducts: p === 'products' ? bar : none,
+      cAbout: p === 'about' ? on : off,     uAbout: p === 'about' ? bar : none,
+      cCerts: p === 'certifications' ? on : off, uCerts: p === 'certifications' ? bar : none,
+      cNews: p === 'news' ? on : off,       uNews: p === 'news' ? bar : none,
+      cContact: p === 'contact' ? on : off, uContact: p === 'contact' ? bar : none,
+      goHome: this.go('home'),
+      goProducts: this.go('products'),
+      goBotanicals: this.go('products', 'botanicals'),
+      goAbout: this.go('about'),
+      goCerts: this.go('certifications'),
+      goNews: this.go('news'),
+      goContact: this.go('contact')
+    };
+  }
+}
+</script>
+</body>
+</html>
