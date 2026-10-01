@@ -114,6 +114,13 @@ function buildFooter() {
   return fixLinks('<footer' + footerRaw + '</footer>');
 }
 
+// lazy-load every image after the first section (above-the-fold stays eager)
+function lazyImages(body) {
+  const cut = body.indexOf('</section>');
+  const rest = body.slice(cut).replace(/<img (?![^>]*loading=)/g, '<img loading="lazy" decoding="async" ');
+  return body.slice(0, cut) + rest;
+}
+
 const head = (key) => `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,6 +142,7 @@ for (const p of pages) {
   body = carButtons(body);
   body = fixLinks(body);
   body = convertHover(body);
+  body = lazyImages(body);
   let header = convertHover(buildHeader(p.key));
   let footer = convertHover(buildFooter());
   const html = head(p.key) + '<div style="background:#fff">\n' + header + '\n<main id="main">' + body + '</main>\n' + footer + '\n</div>\n<script src="/js/site.js" defer></script>\n</body>\n</html>\n';
