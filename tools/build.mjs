@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { seoHead, writeCrawlFiles } from './seo.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const src = fs.readFileSync(path.join(root, 'tools/design-source.html'), 'utf8');
@@ -69,6 +70,7 @@ function expandFor(body) {
   return body.replace(/<sc-for list="\{\{ carItems \}\}"[^>]*>([\s\S]*?)<\/sc-for>/, (m, tpl) =>
     carItems.map(p => tpl
       .replace(/\{\{ p\.img \}\}/g, p.img)
+      .replace(/alt="\{\{ p\.name \}\}"/g, `alt="${esc(p.name)}, bulk ingredient from ${esc(p.origin.replace(' · ', ' and '))}"`)
       .replace(/\{\{ p\.name \}\}/g, esc(p.name))
       .replace(/\{\{ p\.origin \}\}/g, esc(p.origin))).join(''));
 }
@@ -114,6 +116,15 @@ function buildFooter() {
   return fixLinks('<footer' + footerRaw + '</footer>');
 }
 
+// keep a valid h1 > h2 > h3 outline per page (design used h4/h3 for cards)
+function fixHeadings(key, body) {
+  const retag = (b, from, to) => b.replace(new RegExp(`<${from}(?=[\\s>])`, 'g'), `<${to}`).replace(new RegExp(`</${from}>`, 'g'), `</${to}>`);
+  if (key === 'home' || key === 'products') body = retag(body, 'h4', 'h3');
+  if (key === 'news') body = retag(body, 'h3', 'h2');
+  if (key === 'about') body = body.replace('<h2', '<h1').replace('</h2>', '</h1>');
+  return body;
+}
+
 // lazy-load every image after the first section (above-the-fold stays eager)
 function lazyImages(body) {
   const cut = body.indexOf('</section>');
@@ -122,13 +133,12 @@ function lazyImages(body) {
   return first + rest;
 }
 
-const head = (key) => `<!DOCTYPE html>
+const head = (key, seo) => `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>${esc(titles[key])}</title>
-<meta name="description" content="Bulk Rooibos, Hibiscus, Chamomile, Botanicals, Extracts and Powders supplied direct from origin to North American manufacturers and wholesalers.">
+${seo}
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
@@ -147,13 +157,16 @@ for (const p of pages) {
   body = fixLinks(body);
   body = convertHover(body);
   body = lazyImages(body);
+  body = fixHeadings(p.key, body);
   let header = convertHover(buildHeader(p.key));
   let footer = convertHover(buildFooter());
-  const html = head(p.key) + '<div style="background:#fff">\n' + header + '\n<main id="main">' + body + '</main>\n' + footer + '\n</div>\n<script src="/js/site.js" defer></script>\n</body>\n</html>\n';
+  const html = head(p.key, seoHead(p, body, pages)) + '<div style="background:#fff">\n' + header + '\n<main id="main">' + body + '</main>\n' + footer + '\n</div>\n<script src="/js/site.js" defer></script>\n</body>\n</html>\n';
   const out = path.join(root, p.file);
   fs.mkdirSync(path.dirname(out), { recursive: true });
   fs.writeFileSync(out, html);
 }
+
+writeCrawlFiles(root, pages);
 
 // hover css -> appended to css/site.css between markers
 let css = '/* hover:start (generated) */\n';
