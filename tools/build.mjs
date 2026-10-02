@@ -70,8 +70,7 @@ function expandFor(body) {
   return body.replace(/<sc-for list="\{\{ carItems \}\}"[^>]*>([\s\S]*?)<\/sc-for>/, (m, tpl) =>
     carItems.map(p => tpl
       .replace(/\{\{ p\.img \}\}/g, p.img)
-      .replace(/alt="\{\{ p\.name \}\}"/g, `alt="${esc(p.name)}, bulk ingredient from ${esc(p.origin.replace(' · ', ' and '))}"`)
-      .replace(/\{\{ p\.name \}\}/g, esc(p.name))
+            .replace(/\{\{ p\.name \}\}/g, esc(p.name))
       .replace(/\{\{ p\.origin \}\}/g, esc(p.origin))).join(''));
 }
 

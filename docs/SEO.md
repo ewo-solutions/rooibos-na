@@ -13,7 +13,7 @@ Set the live domain with `SITE_URL=https://www.example.com node tools/build.mjs`
 | Contact | rooibos supplier USA, bulk quotes |
 
 ## Done in code
-Unique titles/descriptions, canonicals, Open Graph/Twitter cards (`og-image.jpg`), JSON-LD (Organization, WebSite, page type, breadcrumbs, product ItemList), sitemap, robots, one h1 per page with a clean h1>h2>h3 outline, descriptive image alts, lazy-loaded images, long-cache headers (`vercel.json`).
+Unique titles/descriptions, canonicals, Open Graph/Twitter cards (`og-image.jpg`), JSON-LD (Organization, WebSite, page type, breadcrumbs, product ItemList), sitemap, robots, one h1 per page with a clean h1>h2>h3 outline, lazy-loaded images, long-cache headers (`vercel.json`).
 
-## Needs client sign-off (copy is "approved, do not rewrite")
-Visible page text is the biggest remaining lever. Suggested additions: Products H1/intro naming "bulk" suppliers; a short product-by-product "bulk supplier" line; a sustainability/traceability sentence on Home; confirmation that "sustainably sourced" is a claim they can stand behind.
+## On-site copy is untouched
+The client's copy is final: SEO work is limited to metadata, structured data and markup. Do not change visible text or alt text without client approval. (Optional ideas, only if the client ever opens the copy: Suggested additions: Products H1/intro naming "bulk" suppliers; a short product-by-product "bulk supplier" line; a sustainability/traceability sentence on Home; confirmation that "sustainably sourced" is a claim they can stand behind.)
