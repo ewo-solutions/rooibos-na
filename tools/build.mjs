@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { seoHead, writeCrawlFiles } from './seo.mjs';
+import { writeGeoFiles } from './geo.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const src = fs.readFileSync(path.join(root, 'tools/design-source.html'), 'utf8');
@@ -166,6 +167,7 @@ for (const p of pages) {
 }
 
 writeCrawlFiles(root, pages);
+writeGeoFiles(root, pages);
 
 // hover css -> appended to css/site.css between markers
 let css = '/* hover:start (generated) */\n';

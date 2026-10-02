@@ -46,6 +46,7 @@ const org = {
   email: 'jackie@rooibosna.com',
   address: { '@type': 'PostalAddress', streetAddress: '27710 Jefferson Ave., Suite 106', addressLocality: 'Temecula', addressRegion: 'CA', postalCode: '92590', addressCountry: 'US' },
   areaServed: ['US', 'CA', 'MX'],
+  sameAs: ['https://rooibosltd.co.za'],
   parentOrganization: { '@type': 'Organization', name: 'Rooibos Ltd', url: 'https://rooibosltd.co.za' },
   contactPoint: { '@type': 'ContactPoint', contactType: 'sales', name: 'Jacqueline Lamond', telephone: '+1-951-595-2637', email: 'jackie@rooibosna.com', areaServed: 'US', availableLanguage: 'English' },
   knowsAbout: ['Bulk rooibos', 'Honeybush', 'Hibiscus', 'Chamomile', 'Moringa', 'Peppermint', 'Spearmint', 'Botanical extracts', 'Botanical powders', 'Rosehip seed oil'],
@@ -81,7 +82,7 @@ export function seoHead(page, body, pages) {
   const url = SITE + page.href;
   const graph = [org, { '@type': 'WebSite', '@id': SITE + '/#website', url: SITE + '/', name: 'Rooibos North America', publisher: { '@id': SITE + '/#organization' } }];
   const pageType = { about: 'AboutPage', contact: 'ContactPage', certifications: 'CollectionPage', products: 'CollectionPage', news: 'CollectionPage', home: 'WebPage' }[page.key];
-  graph.push({ '@type': pageType, '@id': url + '#webpage', url, name: m.title, description: m.desc, isPartOf: { '@id': SITE + '/#website' }, about: { '@id': SITE + '/#organization' } });
+  graph.push({ '@type': pageType, '@id': url + '#webpage', url, name: m.title, description: m.desc, dateModified: new Date().toISOString().slice(0, 10), isPartOf: { '@id': SITE + '/#website' }, about: { '@id': SITE + '/#organization' } });
   if (page.key !== 'home') {
     graph.push({ '@type': 'BreadcrumbList', itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: SITE + '/' },
@@ -117,5 +118,6 @@ export function writeCrawlFiles(root, pages) {
   const today = new Date().toISOString().slice(0, 10);
   const urls = pages.map(p => `  <url><loc>${SITE}${p.href}</loc><lastmod>${today}</lastmod><priority>${p.key === 'home' ? '1.0' : p.key === 'products' ? '0.9' : '0.7'}</priority></url>`).join('\n');
   fs.writeFileSync(path.join(root, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
-  fs.writeFileSync(path.join(root, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
+  const bots = ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot-Extended', 'Bingbot', 'CCBot'];
+  fs.writeFileSync(path.join(root, 'robots.txt'), `User-agent: *\nAllow: /\n\n${bots.map(b => `User-agent: ${b}\nAllow: /\n`).join('\n')}\nSitemap: ${SITE}/sitemap.xml\n`);
 }
