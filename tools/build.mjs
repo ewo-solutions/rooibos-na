@@ -110,7 +110,15 @@ function buildHeader(active) {
   // aria-current on active link
   const href = pages.find(p => p.key === active).href;
   h = h.replace(new RegExp(`(<a href="${href.replace(/\//g, '\\/')}")(?= onClick)`), '$1 aria-current="page"');
-  return fixLinks(h);
+  h = fixLinks(h);
+  // hooks for the mobile burger menu (see css/site.css, js/site.js)
+  h = h.replace('<header style=', '<header class="site-header" style=');
+  h = h.replace(/<header([^>]*)>\s*<div style=/, '<header$1>\n    <div class="hdr-in" style=');
+  h = h.replace(/<a href="\/" style=([^>]*aria-label="Rooibos North America home")>/, '<a href="/" class="hdr-logo" style=$1>');
+  h = h.replace(/(class="hdr-logo"[\s\S]*?<img )/, '$1class="hdr-logo-img" ');
+  h = h.replace('<nav aria-label="Primary navigation" style=', '<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>\n      <nav id="site-nav" class="site-nav" aria-label="Primary navigation" style=');
+  h = h.replace(/<div style="display:flex;align-items:center;justify-content:flex-end/, '<div class="hdr-partner" style="display:flex;align-items:center;justify-content:flex-end');
+  return h;
 }
 function buildFooter() {
   return fixLinks('<footer' + footerRaw + '</footer>');
