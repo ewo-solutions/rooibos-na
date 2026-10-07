@@ -114,9 +114,41 @@ export function seoHead(page, body, pages) {
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })}</script>`;
 }
 
-export function writeCrawlFiles(root, pages) {
+export function articleHead(post, body) {
+  const url = SITE + '/news/' + post.slug + '/';
+  const title = post.title.length > 52 ? post.title.slice(0, 52).replace(/\s+\S*$/, '') + '…' : post.title;
+  const full = title + ' | Rooibos News';
+  const desc = post.excerpt.length > 155 ? post.excerpt.slice(0, 155).replace(/\s+\S*$/, '') + '…' : post.excerpt;
+  const img = SITE + (post.image || post.hero || OG_IMAGE);
+  const graph = [org,
+    { '@type': 'Article', '@id': url + '#article', headline: post.title, datePublished: post.date, dateModified: post.date, image: img, mainEntityOfPage: url, description: post.excerpt, author: { '@id': SITE + '/#organization' }, publisher: { '@id': SITE + '/#organization' } },
+    { '@type': 'BreadcrumbList', itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: SITE + '/' },
+      { '@type': 'ListItem', position: 2, name: 'Rooibos News', item: SITE + '/news/' },
+      { '@type': 'ListItem', position: 3, name: post.title, item: url } ] }];
+  return `<title>${esc(full)}</title>
+<meta name="description" content="${esc(desc)}">
+<link rel="canonical" href="${url}">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#5d1720">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Rooibos North America">
+<meta property="og:title" content="${esc(post.title)}">
+<meta property="og:description" content="${esc(desc)}">
+<meta property="og:url" content="${url}">
+<meta property="og:image" content="${img}">
+<meta property="article:published_time" content="${post.date}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${esc(post.title)}">
+<meta name="twitter:description" content="${esc(desc)}">
+<meta name="twitter:image" content="${img}">
+<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@graph': graph })}</script>`;
+}
+
+export function writeCrawlFiles(root, pages, posts = []) {
   const today = new Date().toISOString().slice(0, 10);
-  const urls = pages.map(p => `  <url><loc>${SITE}${p.href}</loc><lastmod>${today}</lastmod><priority>${p.key === 'home' ? '1.0' : p.key === 'products' ? '0.9' : '0.7'}</priority></url>`).join('\n');
+  const urls = pages.map(p => `  <url><loc>${SITE}${p.href}</loc><lastmod>${today}</lastmod><priority>${p.key === 'home' ? '1.0' : p.key === 'products' ? '0.9' : '0.7'}</priority></url>`)
+    .concat(posts.map(p => `  <url><loc>${SITE}/news/${p.slug}/</loc><lastmod>${p.date}</lastmod><priority>0.5</priority></url>`)).join('\n');
   fs.writeFileSync(path.join(root, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls}\n</urlset>\n`);
   const bots = ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot-Extended', 'Bingbot', 'CCBot'];
   fs.writeFileSync(path.join(root, 'robots.txt'), `User-agent: *\nAllow: /\n\n${bots.map(b => `User-agent: ${b}\nAllow: /\n`).join('\n')}\nSitemap: ${SITE}/sitemap.xml\n`);

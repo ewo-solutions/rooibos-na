@@ -3,7 +3,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { seoHead, writeCrawlFiles } from './seo.mjs';
+import { seoHead, articleHead, writeCrawlFiles } from './seo.mjs';
+import { loadPosts, listingBody, articleBody } from './news.mjs';
 import { writeGeoFiles } from './geo.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -158,8 +159,11 @@ ${seo}
 <div class="curtain" aria-hidden="true"><span></span><span></span></div>
 `;
 
+const posts = loadPosts(root);
+
 for (const p of pages) {
   let body = pageBody(p.flag);
+  if (p.key === 'news') body = listingBody(posts);
   body = expandFor(body);
   body = carButtons(body);
   body = fixLinks(body);
@@ -174,8 +178,18 @@ for (const p of pages) {
   fs.writeFileSync(out, html);
 }
 
-writeCrawlFiles(root, pages);
-writeGeoFiles(root, pages);
+posts.forEach((post, i) => {
+  const page = { key: 'news', href: '/news/' };
+  let body = articleBody(post, posts[i + 1], posts[i - 1]);
+  body = convertHover(fixLinks(body));
+  const html = head('news', articleHead(post, body)) + '<div style="background:#fff">\n' + convertHover(buildHeader('news')) + '\n<main id="main">' + body + '</main>\n' + convertHover(buildFooter()) + '\n</div>\n<script src="/js/site.js" defer></script>\n</body>\n</html>\n';
+  const out = path.join(root, 'news', post.slug, 'index.html');
+  fs.mkdirSync(path.dirname(out), { recursive: true });
+  fs.writeFileSync(out, html);
+});
+
+writeCrawlFiles(root, pages, posts);
+writeGeoFiles(root, pages, posts);
 
 // hover css -> appended to css/site.css between markers
 let css = '/* hover:start (generated) */\n';

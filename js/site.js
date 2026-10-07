@@ -106,3 +106,16 @@
   document.addEventListener('click', function (e) { if (!header.contains(e.target)) set(false); });
   window.addEventListener('resize', function () { if (window.innerWidth > 980) set(false); });
 })();
+
+/* ---- News: progressive "load more" ---- */
+(function () {
+  var grid = document.querySelector('[data-news-grid]'), more = document.querySelector('[data-news-more]');
+  if (!grid || !more) return;
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('[data-news-card]')), PAGE = 9, shown = PAGE;
+  function render() {
+    cards.forEach(function (c, i) { c.hidden = i >= shown; });
+    more.hidden = shown >= cards.length;
+  }
+  more.addEventListener('click', function () { shown += PAGE; render(); });
+  render();
+})();

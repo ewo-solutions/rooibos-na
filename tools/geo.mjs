@@ -24,11 +24,12 @@ function toMarkdown(mainHtml) {
   return s;
 }
 
-export function writeGeoFiles(root, pages) {
+export function writeGeoFiles(root, pages, posts = []) {
   const names = { home: 'Home', products: 'Products', about: 'About', certifications: 'Certifications', news: 'Rooibos News', contact: 'Contact' };
   let idx = `# Rooibos North America LLC\n\n> Bulk rooibos, honeybush, hibiscus, chamomile, moringa and other botanical ingredients, extracts and powders, supplied direct from origin to North American manufacturers and wholesalers. Wholly-owned subsidiary of Rooibos Ltd (South Africa), in partnership with Serendib Ingredients (Egypt). Warehouses in Los Angeles, CA and Lorton, VA.\n\n`;
   idx += `Contact: Jacqueline Lamond, +1 951 595 2637, jackie@rooibosna.com. 27710 Jefferson Ave., Suite 106, Temecula, CA 92590 USA.\n\n## Pages\n\n`;
   for (const p of pages) idx += `- [${names[p.key]}](${SITE}${p.href}): ${meta[p.key].desc}\n`;
+  if (posts.length) { idx += `\n## News articles\n\n`; for (const p of posts) idx += `- [${p.title}](${SITE}/news/${p.slug}/)\n`; }
   idx += `\n## Full text\n\n- [All page content as plain text](${SITE}/llms-full.txt)\n`;
   fs.writeFileSync(path.join(root, 'llms.txt'), idx);
 
@@ -37,6 +38,11 @@ export function writeGeoFiles(root, pages) {
     const html = fs.readFileSync(path.join(root, p.file), 'utf8');
     const main = (html.match(/<main[^>]*>([\s\S]*?)<\/main>/) || [])[1] || '';
     full += `\n\n---\n\n<!-- ${SITE}${p.href} -->\n\n${toMarkdown(main)}\n`;
+  }
+  for (const p of posts) {
+    const html = fs.readFileSync(path.join(root, 'news', p.slug, 'index.html'), 'utf8');
+    const art = (html.match(/<article>([\s\S]*?)<\/article>/) || [])[1] || '';
+    full += `\n\n---\n\n<!-- ${SITE}/news/${p.slug}/ -->\n\n${toMarkdown(art)}\n`;
   }
   fs.writeFileSync(path.join(root, 'llms-full.txt'), full);
 }
